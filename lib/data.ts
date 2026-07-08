@@ -81,12 +81,128 @@ export function hallOfFame(): PieceView[] {
     .filter((x): x is PieceView => !!x);
 }
 
-// Fitness-over-generations series for the climbing curve.
-export function fitnessSeries(): { gen: number; mean: number; best: number; cost: number }[] {
+// ---- lineage ----
+
+let genomeIdx: Map<string, Genome> | null = null;
+export function genomeById(id: string): Genome | undefined {
+  if (!genomeIdx) {
+    genomeIdx = new Map();
+    for (const g of gallery().generations) for (const gm of g.genomes) genomeIdx.set(gm.id, gm);
+  }
+  return genomeIdx.get(id);
+}
+
+let pieceByGenomeIdx: Map<string, Piece> | null = null;
+export function pieceForGenome(genomeId: string): Piece | undefined {
+  if (!pieceByGenomeIdx) {
+    pieceByGenomeIdx = new Map();
+    for (const g of gallery().generations) for (const p of g.pieces) if (!p.disqualified) pieceByGenomeIdx.set(p.genomeId, p);
+  }
+  return pieceByGenomeIdx.get(genomeId);
+}
+
+export type Ancestor = {
+  genome: Genome;
+  piece?: Piece;
+  fitness?: number;
+  parents: Ancestor[];
+};
+
+// Ancestry tree for a piece — recursively resolves parent genomes back to seeds.
+export function ancestryOfPiece(pieceId: string): Ancestor | undefined {
+  const pv = pieceView(pieceId);
+  if (!pv?.genome) return undefined;
+  const seen = new Set<string>();
+  const build = (genome: Genome): Ancestor => {
+    seen.add(genome.id);
+    const piece = pieceForGenome(genome.id);
+    const gen = piece ? gallery().generations.find((g) => g.n === piece.generation) : undefined;
+    return {
+      genome,
+      piece,
+      fitness: piece && gen ? gen.fitness[piece.id]?.total : undefined,
+      parents: genome.lineage.parents
+        .map((pid) => genomeById(pid))
+        .filter((g): g is Genome => !!g && !seen.has(g.id))
+        .map(build),
+    };
+  };
+  return build(pv.genome);
+}
+
+// Optional model A/B artifact (Haiku vs Sonnet cost↔quality).
+export type ModelAB = {
+  rows: { model: string; label: string; artist: string; quality: number; costUsd: number; ms: number; ok: boolean }[];
+  byModel: { label: string; model: string; avgQuality: number; avgCostUsd: number; avgMs: number; n: number }[];
+  builtAt: string;
+};
+
+export function modelAB(): ModelAB | null {
+  try {
+    const raw = readFileSync(join(process.cwd(), "public", "data", "model-ab.json"), "utf8");
+    return JSON.parse(raw) as ModelAB;
+  } catch {
+    return null;
+  }
+}
+
+// Slim per-generation frames for the client-side "Evolve" replay theatre.
+export type EvolveFrame = {
+  n: number;
+  mean: number;
+  best: number;
+  survived: number;
+  rejected: number;
+  cost: number;
+  pieces: { id: string; name: string; thumb: string; fit: number; op: string }[];
+};
+
+export function evolveFrames(): EvolveFrame[] {
   return gallery().generations.map((g) => ({
-    gen: g.n,
+    n: g.n,
     mean: Number(g.summary.meanFitness.toFixed(2)),
     best: Number((g.summary.bestFitness ?? 0).toFixed(2)),
+    survived: g.summary.survived,
+    rejected: g.summary.rejected,
     cost: Number(g.costUsd.toFixed(4)),
+    pieces: g.pieces
+      .filter((p) => !p.disqualified)
+      .map((p) => ({
+        id: p.id,
+        name: p.artistName,
+        thumb: p.thumbPath,
+        fit: Number((g.fitness[p.id]?.total ?? 0).toFixed(1)),
+        op: g.genomes.find((gm) => gm.id === p.genomeId)?.lineage.op ?? "seed",
+      }))
+      .sort((a, b) => b.fit - a.fit),
   }));
+}
+
+// Fitness-over-generations series for the climbing curve. `bestSoFar` is the
+// cumulative max — monotonic by construction (elites carry forward), the clean
+// climbing line; `mean` is the noisier population trend.
+export function fitnessSeries(): {
+  gen: number;
+  quality: number;
+  mean: number;
+  best: number;
+  bestSoFar: number;
+  cost: number;
+}[] {
+  let running = 0;
+  return gallery().generations.map((g) => {
+    const best = Number((g.summary.bestFitness ?? 0).toFixed(2));
+    running = Math.max(running, best);
+    const survivors = g.pieces.filter((p) => !p.disqualified);
+    const quality =
+      survivors.reduce((s, p) => s + (g.fitness[p.id]?.critics ?? 0), 0) / (survivors.length || 1);
+    return {
+      gen: g.n,
+      quality: Number(quality.toFixed(2)),
+      mean: Number(g.summary.meanFitness.toFixed(2)),
+      best,
+      bestSoFar: Number(running.toFixed(2)),
+      cost: Number(g.costUsd.toFixed(4)),
+    };
+  });
 }

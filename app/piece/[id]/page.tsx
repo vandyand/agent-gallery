@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { pieceView, allPieceIds } from "@/lib/data";
+import { pieceView, allPieceIds, gallery } from "@/lib/data";
 import { VoteButton } from "@/components/VoteButton";
 
 export function generateStaticParams() {
@@ -131,7 +131,22 @@ export default async function PiecePage({ params }: { params: Promise<{ id: stri
               </span>
             </div>
             <p className="mono" style={{ fontSize: "0.72rem", color: "var(--faint)", marginTop: 12, marginBottom: 0 }}>
-              weights: critics {gen.fitness[piece.id] ? "0.6" : ""} · votes 0.2 · novelty 0.2
+              weights: critics {gallery().fitnessWeights.critics} · votes {gallery().fitnessWeights.human} ·
+              novelty {gallery().fitnessWeights.novelty}
+            </p>
+          </div>
+
+          <div className="card">
+            <h3>Guard · passed {piece.guard.checks.length}/{piece.guard.checks.length}</h3>
+            <div className="mono" style={{ fontSize: "0.78rem", lineHeight: 1.7 }}>
+              {piece.guard.checks.map((c) => (
+                <span key={c.name} style={{ display: "inline-block", marginRight: 12, color: "var(--muted)" }}>
+                  <span style={{ color: c.ok ? "var(--up)" : "var(--down)" }}>{c.ok ? "✓" : "✗"}</span> {c.name}
+                </span>
+              ))}
+            </div>
+            <p className="mono" style={{ fontSize: "0.72rem", color: "var(--faint)", marginTop: 10, marginBottom: 0 }}>
+              {piece.guard.elements} shapes · {(piece.guard.bytes / 1024).toFixed(1)} KB · rendered headless
             </p>
           </div>
         </div>

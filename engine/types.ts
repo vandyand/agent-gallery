@@ -10,7 +10,8 @@ export type GenomeParams = {
 export type Lineage = {
   parents: string[]; // parent genome ids
   generation: number;
-  op: "seed" | "mutation" | "crossover";
+  op: "seed" | "survive" | "mutation" | "crossover";
+  note?: string; // e.g. the critic feedback a mutation was steered by
 };
 
 export type Genome = {
@@ -21,6 +22,9 @@ export type Genome = {
   lineage: Lineage;
   model: string; // artist LLM
   temperature: number;
+  // Transient: critic notes on the parent's piece, fed back so a refined artist
+  // paints an improved version (the measure→improve loop, in-context).
+  feedback?: { lens: string; score: number; oneLine: string }[];
 };
 
 export type GuardCheck = { name: string; ok: boolean; detail?: string };

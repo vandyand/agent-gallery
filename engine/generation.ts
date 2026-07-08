@@ -84,8 +84,16 @@ export async function runGeneration(
   const votes = opts.votes ?? {};
   const maxVotes = Math.max(1, ...Object.values(votes));
   const fitness: Record<string, Fitness> = {};
-  for (const f of features) {
-    const novelty = noveltyScore(f.vec, priorFeatures);
+  // Novelty = how much a piece stands out from its CONTEMPORARIES on the wall
+  // (intra-generation only). Measuring against the growing hall-of-fame would
+  // make novelty decay every generation and mask real quality gains — this keeps
+  // it a stable anti-collapse pressure. (priorFeatures kept for future use.)
+  void priorFeatures;
+  const peerVecs = features.map((x) => x.vec);
+  for (let i = 0; i < features.length; i++) {
+    const f = features[i];
+    const others = peerVecs.filter((_, j) => j !== i);
+    const novelty = noveltyScore(f.vec, others);
     fitness[f.pieceId] = computeFitness(
       f.pieceId,
       critiques[f.pieceId] ?? [],

@@ -33,6 +33,15 @@ export function artistUser(g: Genome): string {
     `Compose deliberately. Use <rect>, <circle>, <ellipse>, <path>, <polygon>,`,
     `<line>, <g>, <linearGradient>/<radialGradient> as needed. A background is fine.`,
     ``,
+    ...(g.feedback && g.feedback.length
+      ? [
+          ``,
+          `The critics reviewed your previous piece. Address this feedback directly in a NEW piece —`,
+          `keep your style identity, but fix what they faulted:`,
+          ...g.feedback.map((f) => `  · ${f.lens} (${f.score}/10): ${f.oneLine}`),
+        ]
+      : []),
+    ``,
     `Return ONLY the complete SVG markup — start with "<svg" and end with "</svg>".`,
     `No prose, no explanation, no markdown fences.`,
   ].join("\n");
@@ -50,7 +59,7 @@ export async function paint(g: Genome) {
     model: g.model,
     system: artistSystem(g),
     user: artistUser(g),
-    maxTokens: 8000,
+    maxTokens: 6000,
     temperature: g.temperature,
   });
   const svg = extractSvg(result.text);

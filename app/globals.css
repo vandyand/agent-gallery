@@ -468,3 +468,128 @@ a {
 .tnum {
   font-variant-numeric: tabular-nums;
 }
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  border-top-color: var(--gold);
+  animation: spin 0.7s linear infinite;
+  flex: none;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- lineage tree (horizontal: ancestors left, selected piece right) ---- */
+.lin-scroll {
+  overflow-x: auto;
+  padding: 20px 4px 30px;
+}
+.lin-node {
+  display: flex;
+  align-items: center;
+}
+.lin-parents {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 30px;
+  position: relative;
+}
+/* vertical spine connecting stacked parents */
+.lin-parents::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.lin-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px 8px 8px;
+  white-space: nowrap;
+}
+/* horizontal connector from parents' spine into this card */
+.lin-parents + .lin-card::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  width: 15px;
+  height: 1px;
+  background: var(--line);
+}
+.lin-thumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: #fff;
+  flex: none;
+}
+.lin-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(45deg, #17141a, #17141a 6px, #191419 6px, #191419 12px);
+  color: var(--down);
+  border: 1px dashed #3a2b30;
+}
+.lin-name {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.lin-name a:hover {
+  color: var(--gold-2);
+}
+.lin-op {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 3px;
+}
+.op {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-weight: 700;
+}
+.op-seed {
+  color: #8fb4d8;
+  background: #17222c;
+}
+.op-survive {
+  color: var(--gold-2);
+  background: #241f14;
+}
+.op-mutation {
+  color: #a99cf0;
+  background: #1e1a2c;
+}
+.op-crossover {
+  color: var(--up);
+  background: #142219;
+}
+.lin-gen,
+.lin-fit {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  color: var(--faint);
+}
+.lin-fit {
+  color: var(--gold-2);
+}

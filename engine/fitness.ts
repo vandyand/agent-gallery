@@ -3,7 +3,7 @@
 
 import type { Critique, Fitness } from "./types";
 
-export const DEFAULT_WEIGHTS = { critics: 0.6, human: 0.2, novelty: 0.2 };
+export const DEFAULT_WEIGHTS = { critics: 0.7, human: 0.15, novelty: 0.15 };
 
 export function meanCritics(critics: Critique[]): number {
   if (!critics.length) return 0;

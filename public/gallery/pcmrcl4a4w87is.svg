@@ -1,0 +1,199 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rustGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4545;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#C85A54;stop-opacity:0.8"></stop>
+    </linearGradient>
+    <radialGradient id="pulseGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#E8E8E8;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#3A3A3A;stop-opacity:0.6"></stop>
+    </radialGradient>
+    <linearGradient id="decayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2A2A2A;stop-opacity:1"></stop>
+      <stop offset="50%" style="stop-color:#1A1A1A;stop-opacity:0.9"></stop>
+      <stop offset="100%" style="stop-color:#0A0A0A;stop-opacity:0.7"></stop>
+    </linearGradient>
+  </defs>
+
+  
+  <rect width="1000" height="1000" fill="#F5F5F5"></rect>
+  
+  
+  <g opacity="0.4" stroke="#2A2A2A" stroke-width="1.5" fill="none">
+    <line x1="200" y1="150" x2="350" y2="250"></line>
+    <line x1="350" y1="250" x2="500" y2="180"></line>
+    <line x1="500" y1="180" x2="650" y2="280"></line>
+    <line x1="650" y1="280" x2="800" y2="200"></line>
+    <line x1="200" y1="400" x2="280" y2="520"></line>
+    <line x1="280" y1="520" x2="420" y2="480"></line>
+    <line x1="420" y1="480" x2="580" y2="550"></line>
+    <line x1="580" y1="550" x2="750" y2="500"></line>
+    <line x1="750" y1="500" x2="880" y2="620"></line>
+  </g>
+
+  
+  <g id="leftBotanic">
+    <path d="M 150 300 Q 160 350 155 400 Q 150 450 160 500" stroke="#3A3A3A" stroke-width="2" fill="none"></path>
+    <circle cx="155" cy="320" r="8" fill="url(#pulseGrad)"></circle>
+    <circle cx="158" cy="360" r="6" fill="#C85A54" opacity="0.7"></circle>
+    <circle cx="152" cy="400" r="7" fill="url(#pulseGrad)"></circle>
+    <circle cx="160" cy="445" r="5" fill="#8B4545"></circle>
+    <circle cx="155" cy="485" r="6" fill="url(#pulseGrad)"></circle>
+  </g>
+
+  
+  <g id="rightBotanic">
+    <path d="M 850 300 Q 840 350 845 400 Q 850 450 840 500" stroke="#3A3A3A" stroke-width="2" fill="none"></path>
+    <circle cx="845" cy="320" r="8" fill="url(#pulseGrad)"></circle>
+    <circle cx="842" cy="360" r="6" fill="#C85A54" opacity="0.7"></circle>
+    <circle cx="848" cy="400" r="7" fill="url(#pulseGrad)"></circle>
+    <circle cx="840" cy="445" r="5" fill="#8B4545"></circle>
+    <circle cx="845" cy="485" r="6" fill="url(#pulseGrad)"></circle>
+  </g>
+
+  
+  <g id="matrix1">
+    
+    <circle cx="300" cy="200" r="4" fill="#E8E8E8"></circle>
+    <circle cx="350" cy="200" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="400" cy="200" r="4" fill="#C85A54"></circle>
+    <circle cx="450" cy="200" r="3" fill="#2A2A2A"></circle>
+    <circle cx="500" cy="200" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="550" cy="200" r="4" fill="#E8E8E8"></circle>
+    <circle cx="600" cy="200" r="4" fill="#8B4545"></circle>
+    <circle cx="650" cy="200" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="700" cy="200" r="3" fill="#2A2A2A"></circle>
+    
+    
+    <circle cx="300" cy="250" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="350" cy="250" r="4" fill="#8B4545"></circle>
+    <circle cx="400" cy="250" r="5" fill="#E8E8E8"></circle>
+    <circle cx="450" cy="250" r="4" fill="#C85A54"></circle>
+    <circle cx="500" cy="250" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="550" cy="250" r="3" fill="#2A2A2A"></circle>
+    <circle cx="600" cy="250" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="650" cy="250" r="4" fill="#E8E8E8"></circle>
+    
+    
+    <circle cx="325" cy="300" r="4" fill="#C85A54"></circle>
+    <circle cx="375" cy="300" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="425" cy="300" r="4" fill="#8B4545"></circle>
+    <circle cx="475" cy="300" r="5" fill="#E8E8E8"></circle>
+    <circle cx="525" cy="300" r="4" fill="url(#pulseGrad)"></circle>
+    <circle cx="575" cy="300" r="5" fill="#C85A54"></circle>
+    <circle cx="625" cy="300" r="3" fill="#2A2A2A"></circle>
+    <circle cx="675" cy="300" r="5" fill="url(#pulseGrad)"></circle>
+  </g>
+
+  
+  <g id="collapse" opacity="0.85">
+    <circle cx="280" cy="380" r="6" fill="#C85A54"></circle>
+    <circle cx="310" cy="390" r="4" fill="#E8E8E8"></circle>
+    <circle cx="340" cy="375" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="360" cy="410" r="3" fill="#2A2A2A"></circle>
+    <circle cx="390" cy="395" r="5" fill="#8B4545"></circle>
+    <circle cx="420" cy="420" r="4" fill="url(#pulseGrad)"></circle>
+    <circle cx="450" cy="405" r="5" fill="#C85A54"></circle>
+    <circle cx="480" cy="435" r="3" fill="#E8E8E8"></circle>
+    <circle cx="510" cy="415" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="540" cy="445" r="4" fill="#2A2A2A"></circle>
+    <circle cx="570" cy="425" r="5" fill="#8B4545"></circle>
+    <circle cx="600" cy="460" r="4" fill="url(#pulseGrad)"></circle>
+    <circle cx="630" cy="440" r="5" fill="#C85A54"></circle>
+    <circle cx="660" cy="475" r="3" fill="#E8E8E8"></circle>
+    <circle cx="690" cy="455" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="720" cy="490" r="4" fill="#2A2A2A"></circle>
+  </g>
+
+  
+  <g id="reform">
+    
+    <circle cx="300" cy="580" r="4" fill="#E8E8E8"></circle>
+    <circle cx="360" cy="580" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="420" cy="580" r="4" fill="#8B4545"></circle>
+    <circle cx="480" cy="580" r="5" fill="#C85A54"></circle>
+    <circle cx="540" cy="580" r="4" fill="url(#pulseGrad)"></circle>
+    <circle cx="600" cy="580" r="5" fill="#E8E8E8"></circle>
+    <circle cx="660" cy="580" r="3" fill="#2A2A2A"></circle>
+    <circle cx="720" cy="580" r="5" fill="url(#pulseGrad)"></circle>
+    
+    
+    <circle cx="330" cy="640" r="5" fill="#C85A54"></circle>
+    <circle cx="390" cy="640" r="4" fill="url(#pulseGrad)"></circle>
+    <circle cx="450" cy="640" r="5" fill="#E8E8E8"></circle>
+    <circle cx="510" cy="640" r="4" fill="#8B4545"></circle>
+    <circle cx="570" cy="640" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="630" cy="640" r="4" fill="#C85A54"></circle>
+    <circle cx="690" cy="640" r="5" fill="url(#pulseGrad)"></circle>
+    
+    
+    <circle cx="320" cy="700" r="4" fill="#2A2A2A"></circle>
+    <circle cx="380" cy="700" r="5" fill="url(#pulseGrad)"></circle>
+    <circle cx="440" cy="700" r="4" fill="#E8E8E8"></circle>
+    <circle cx="500" cy="700" r="5" fill="#C85A54"></circle>
+    <circle cx="560" cy="700" r="4" fill="url(#pulseGrad)"></circle>
+    <circle cx="620" cy="700" r="5" fill="#8B4545"></circle>
+    <circle cx="680" cy="700" r="3" fill="#2A2A2A"></circle>
+  </g>
+
+  
+  <g opacity="0.35">
+    <ellipse cx="280" cy="320" rx="80" ry="120" fill="url(#rustGrad)"></ellipse>
+    <ellipse cx="720" cy="320" rx="80" ry="120" fill="url(#rustGrad)"></ellipse>
+    <ellipse cx="500" cy="450" rx="120" ry="100" fill="url(#rustGrad)"></ellipse>
+  </g>
+
+  
+  <g stroke="#3A3A3A" stroke-width="1" fill="none" opacity="0.5">
+    <rect x="180" y="150" width="640" height="600" rx="20"></rect>
+    <rect x="200" y="170" width="600" height="560" rx="15"></rect>
+  </g>
+
+  
+  <g id="reaching" opacity="0.6">
+    <circle cx="250" cy="550" r="2" fill="#C85A54"></circle>
+    <circle cx="350" cy="520" r="2.5" fill="#E8E8E8"></circle>
+    <circle cx="450" cy="560" r="2" fill="#8B4545"></circle>
+    <circle cx="550" cy="530" r="2.5" fill="url(#pulseGrad)"></circle>
+    <circle cx="650" cy="570" r="2" fill="#2A2A2A"></circle>
+    <circle cx="750" cy="540" r="2.5" fill="#C85A54"></circle>
+    <circle cx="300" cy="750" r="2" fill="#E8E8E8"></circle>
+    <circle cx="400" cy="780" r="2.5" fill="url(#pulseGrad)"></circle>
+    <circle cx="500" cy="760" r="2" fill="#8B4545"></circle>
+    <circle cx="600" cy="790" r="2.5" fill="#C85A54"></circle>
+    <circle cx="700" cy="770" r="2" fill="#2A2A2A"></circle>
+  </g>
+
+  
+  <g stroke="url(#rustGrad)" stroke-width="1.5" fill="none" opacity="0.4">
+    <line x1="150" y1="600" x2="180" y2="650"></line>
+    <line x1="820" y1="600" x2="850" y2="650"></line>
+    <line x1="250" y1="750" x2="300" y2="800"></line>
+    <line x1="700" y1="750" x2="750" y2="800"></line>
+  </g>
+
+  
+  <rect x="180" y="800" width="640" height="180" fill="url(#decayGrad)"></rect>
+  
+  
+  <g opacity="0.25" fill="#E8E8E8">
+    <circle cx="250" cy="850" r="3"></circle>
+    <circle cx="310" cy="850" r="3"></circle>
+    <circle cx="370" cy="850" r="3"></circle>
+    <circle cx="430" cy="850" r="3"></circle>
+    <circle cx="490" cy="850" r="3"></circle>
+    <circle cx="550" cy="850" r="3"></circle>
+    <circle cx="610" cy="850" r="3"></circle>
+    <circle cx="670" cy="850" r="3"></circle>
+    <circle cx="730" cy="850" r="3"></circle>
+    <circle cx="250" cy="920" r="3"></circle>
+    <circle cx="310" cy="920" r="3"></circle>
+    <circle cx="370" cy="920" r="3"></circle>
+    <circle cx="430" cy="920" r="3"></circle>
+    <circle cx="490" cy="920" r="3"></circle>
+    <circle cx="550" cy="920" r="3"></circle>
+    <circle cx="610" cy="920" r="3"></circle>
+    <circle cx="670" cy="920" r="3"></circle>
+    <circle cx="730" cy="920" r="3"></circle>
+  </g>
+</svg>

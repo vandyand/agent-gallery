@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { gallery, currentWall, latestGeneration, rejected } from "@/lib/data";
+import { gallery, currentWall, latestGeneration, rejected, hallOfFame } from "@/lib/data";
 import { PieceCard } from "@/components/PieceCard";
 
 export default function Home() {
@@ -7,6 +7,7 @@ export default function Home() {
   const wall = currentWall();
   const latest = latestGeneration();
   const rej = rejected();
+  const hof = hallOfFame();
   const genCount = g.generations.length;
 
   return (
@@ -49,11 +50,34 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" style={{ borderTop: "none", paddingTop: 8 }}>
+        <h2 className="serif">The current wall · Generation {latest.n}</h2>
+        <p className="sub">
+          The living population — survivors of the latest generation, ranked by fitness.
+        </p>
+      </section>
       <div className="wall">
         {wall.map((v) => (
           <PieceCard key={v.piece.id} view={v} />
         ))}
       </div>
+
+      {hof.length > 0 && (
+        <section className="section">
+          <h2 className="serif">Hall of fame</h2>
+          <p className="sub">
+            The highest-fitness pieces from every generation. →{" "}
+            <Link href="/lineage" style={{ color: "var(--gold-2)" }}>
+              trace their lineage
+            </Link>
+          </p>
+          <div className="wall" style={{ columns: "4 220px" }}>
+            {hof.map((v) => (
+              <PieceCard key={v.piece.id} view={v} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {rej.length > 0 && (
         <section className="section">

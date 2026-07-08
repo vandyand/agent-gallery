@@ -1,0 +1,95 @@
+{
+  "rows": [
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "label": "Claude Haiku 4.5",
+      "artist": "Bauhau",
+      "quality": 4.75,
+      "costUsd": 0.0138,
+      "ms": 8455,
+      "ok": true
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "label": "Claude Haiku 4.5",
+      "artist": "Seraphine",
+      "quality": 6,
+      "costUsd": 0.02484,
+      "ms": 16591,
+      "ok": true
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "label": "Claude Haiku 4.5",
+      "artist": "Moiré",
+      "quality": 4.5,
+      "costUsd": 0.02874,
+      "ms": 16351,
+      "ok": true
+    },
+    {
+      "model": "anthropic/claude-haiku-4.5",
+      "label": "Claude Haiku 4.5",
+      "artist": "Quadra",
+      "quality": 5.25,
+      "costUsd": 0.02096,
+      "ms": 11641,
+      "ok": true
+    },
+    {
+      "model": "anthropic/claude-sonnet-4.5",
+      "label": "Claude Sonnet 4.5",
+      "artist": "Bauhau",
+      "quality": 6.5,
+      "costUsd": 0.02714,
+      "ms": 13953,
+      "ok": true
+    },
+    {
+      "model": "anthropic/claude-sonnet-4.5",
+      "label": "Claude Sonnet 4.5",
+      "artist": "Seraphine",
+      "quality": 5.25,
+      "costUsd": 0.07102,
+      "ms": 35789,
+      "ok": true
+    },
+    {
+      "model": "anthropic/claude-sonnet-4.5",
+      "label": "Claude Sonnet 4.5",
+      "artist": "Moiré",
+      "quality": 5,
+      "costUsd": 0.04053,
+      "ms": 16233,
+      "ok": true
+    },
+    {
+      "model": "anthropic/claude-sonnet-4.5",
+      "label": "Claude Sonnet 4.5",
+      "artist": "Quadra",
+      "quality": 5.25,
+      "costUsd": 0.03858,
+      "ms": 17675,
+      "ok": true
+    }
+  ],
+  "byModel": [
+    {
+      "label": "Claude Haiku 4.5",
+      "model": "anthropic/claude-haiku-4.5",
+      "avgQuality": 5.13,
+      "avgCostUsd": 0.02209,
+      "avgMs": 13260,
+      "n": 4
+    },
+    {
+      "label": "Claude Sonnet 4.5",
+      "model": "anthropic/claude-sonnet-4.5",
+      "avgQuality": 5.5,
+      "avgCostUsd": 0.04432,
+      "avgMs": 20913,
+      "n": 4
+    }
+  ],
+  "builtAt": "2026-07-08T21:29:05.121Z"
+}

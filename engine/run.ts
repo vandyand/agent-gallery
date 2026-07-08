@@ -1,40 +1,60 @@
-// Offline driver. Runs real generations against OpenRouter and writes the
-// committed gallery manifest + assets. P1: generation 0 only. P2 extends this
-// with the evolve loop (this file is rewritten to breed gen N+1 from gen N).
+// Offline evolution driver. Seeds generation 0, then breeds each subsequent
+// generation from the previous one (critic-steered mutation + crossover),
+// running the full guard→judge→fitness pipeline each time, and writes the
+// committed manifest + assets that the deployed gallery reads.
 
 import "./env";
 import { runGeneration } from "./generation";
+import { breed } from "./evolve";
 import { seedGenomes } from "./seeds";
 import { DEFAULT_WEIGHTS } from "./fitness";
 import { writeGalleryData } from "./io";
 import type { GalleryData, Generation } from "./types";
 
-const MAX_USD = Number(process.env.GALLERY_MAX_USD ?? "2.0");
+const NUM_GEN = Number(process.env.GALLERY_GENERATIONS ?? "6");
+const POP = Number(process.env.GALLERY_POP ?? "8");
+const MAX_USD = Number(process.env.GALLERY_MAX_USD ?? "3.0");
 
 async function main() {
   const generations: Generation[] = [];
   const priorFeatures: number[][] = [];
   let totalCost = 0;
+  const log = (m: string) => console.log(m);
 
-  const genomes = seedGenomes();
-  const { gen, features } = await runGeneration({
-    genomes,
-    n: 0,
-    priorFeatures,
-    weights: DEFAULT_WEIGHTS,
-    log: (m) => console.log(m),
-  });
-  generations.push(gen);
-  priorFeatures.push(...features.map((f) => f.vec));
-  totalCost += gen.costUsd;
-  if (totalCost > MAX_USD) console.warn(`⚠ cost ${totalCost.toFixed(4)} exceeded ceiling ${MAX_USD}`);
+  for (let n = 0; n < NUM_GEN; n++) {
+    let genomes;
+    if (n === 0) {
+      genomes = seedGenomes();
+    } else {
+      const bred = await breed(generations[n - 1], n, POP);
+      genomes = bred.genomes;
+      totalCost += bred.costUsd;
+      log(`gen ${n}: bred ${genomes.length} artists from gen ${n - 1} ($${bred.costUsd.toFixed(4)} breeding)`);
+    }
 
-  // hall of fame — best survivors across all generations
+    const { gen, features } = await runGeneration({
+      genomes,
+      n,
+      priorFeatures: [...priorFeatures],
+      weights: DEFAULT_WEIGHTS,
+      log,
+    });
+    generations.push(gen);
+    priorFeatures.push(...features.map((f) => f.vec));
+    totalCost += gen.costUsd;
+
+    if (totalCost > MAX_USD) {
+      log(`⚠ cost ceiling $${MAX_USD} hit at gen ${n} — stopping early`);
+      break;
+    }
+  }
+
+  // hall of fame — best survivors across every generation
   const scored = generations.flatMap((g) =>
     g.pieces.filter((p) => !p.disqualified).map((p) => ({ id: p.id, total: g.fitness[p.id]?.total ?? 0 })),
   );
   scored.sort((a, b) => b.total - a.total);
-  const hallOfFame = scored.slice(0, 6).map((s) => s.id);
+  const hallOfFame = scored.slice(0, 8).map((s) => s.id);
 
   const data: GalleryData = {
     title: "The Evolving Gallery",
@@ -45,8 +65,12 @@ async function main() {
     builtAt: new Date().toISOString(),
   };
   writeGalleryData(data);
-  console.log(`\n✅ wrote public/data/gallery.json — ${generations.length} generation(s), $${totalCost.toFixed(4)} total`);
-  console.log(`   hall of fame: ${hallOfFame.join(", ")}`);
+
+  console.log(`\n✅ ${generations.length} generations · $${totalCost.toFixed(4)} total`);
+  console.log(
+    "   fitness by gen: " +
+      generations.map((g) => `${g.n}:${g.summary.meanFitness.toFixed(2)}`).join("  "),
+  );
 }
 
 main().catch((e) => {

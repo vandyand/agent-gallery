@@ -1,0 +1,164 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a1f3d;stop-opacity:1"></stop>
+      <stop offset="50%" style="stop-color:#1a0f2e;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#0f0815;stop-opacity:1"></stop>
+    </linearGradient>
+    <radialGradient id="grad2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#c9a86d;stop-opacity:0.9"></stop>
+      <stop offset="100%" style="stop-color:#6b4423;stop-opacity:0.3"></stop>
+    </radialGradient>
+    <radialGradient id="grad3" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#e8d4a8;stop-opacity:0.8"></stop>
+      <stop offset="100%" style="stop-color:#a67c52;stop-opacity:0.1"></stop>
+    </radialGradient>
+    <radialGradient id="grad4" cx="45%" cy="45%" r="55%">
+      <stop offset="0%" style="stop-color:#d4a574;stop-opacity:0.7"></stop>
+      <stop offset="100%" style="stop-color:#5a3a2a;stop-opacity:0"></stop>
+    </radialGradient>
+  </defs>
+
+  <rect width="1000" height="1000" fill="url(#grad1)"></rect>
+
+  
+  <g id="chamber1" opacity="0.85">
+    <ellipse cx="280" cy="320" rx="140" ry="165" fill="none" stroke="#8b6f47" stroke-width="2"></ellipse>
+    <circle cx="310" cy="280" r="8" fill="#d4a574" opacity="0.6"></circle>
+    <circle cx="250" cy="350" r="6" fill="#c9a86d" opacity="0.5"></circle>
+    <circle cx="290" cy="410" r="7" fill="#e8d4a8" opacity="0.4"></circle>
+    <circle cx="330" cy="300" r="5" fill="#a67c52" opacity="0.3"></circle>
+  </g>
+
+  <g id="chamber2" opacity="0.75">
+    <ellipse cx="720" cy="250" rx="125" ry="145" fill="none" stroke="#8b6f47" stroke-width="2.5"></ellipse>
+    <circle cx="750" cy="210" r="9" fill="#d4a574" opacity="0.7"></circle>
+    <circle cx="700" cy="290" r="7" fill="#c9a86d" opacity="0.4"></circle>
+    <circle cx="760" cy="310" r="6" fill="#e8d4a8" opacity="0.3"></circle>
+  </g>
+
+  
+  <circle cx="500" cy="520" r="180" fill="url(#grad2)" opacity="0.9"></circle>
+  <circle cx="500" cy="520" r="160" fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.6"></circle>
+  <circle cx="500" cy="520" r="140" fill="none" stroke="#c9a86d" stroke-width="1" opacity="0.4"></circle>
+  <circle cx="500" cy="520" r="120" fill="none" stroke="#8b6f47" stroke-width="1.5" opacity="0.5"></circle>
+
+  
+  <g id="spiral1" transform="translate(420, 480)">
+    <path d="M 0,0 Q 15,-20 25,-10 Q 30,10 15,25 Q -5,30 -20,15 Q -25,-5 0,0" fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.7"></path>
+    <circle cx="0" cy="0" r="3" fill="#e8d4a8" opacity="0.6"></circle>
+    <circle cx="12" cy="-8" r="2" fill="#c9a86d" opacity="0.5"></circle>
+    <circle cx="18" cy="8" r="2.5" fill="#d4a574" opacity="0.4"></circle>
+  </g>
+
+  <g id="spiral2" transform="translate(580, 560)">
+    <path d="M 0,0 Q -18,-22 -28,-8 Q -32,15 -15,28 Q 8,32 22,12 Q 28,-8 0,0" fill="none" stroke="#8b6f47" stroke-width="1.5" opacity="0.6"></path>
+    <circle cx="0" cy="0" r="2.5" fill="#d4a574" opacity="0.5"></circle>
+    <circle cx="-14" cy="-10" r="2" fill="#e8d4a8" opacity="0.4"></circle>
+    <circle cx="-16" cy="14" r="2.5" fill="#c9a86d" opacity="0.3"></circle>
+  </g>
+
+  
+  <g id="matrix1" opacity="0.7">
+    <circle cx="150" cy="150" r="3" fill="#d4a574"></circle>
+    <circle cx="180" cy="140" r="2.5" fill="#c9a86d"></circle>
+    <circle cx="210" cy="155" r="2" fill="#8b6f47"></circle>
+    <circle cx="145" cy="180" r="2.5" fill="#d4a574"></circle>
+    <circle cx="175" cy="190" r="3" fill="#e8d4a8"></circle>
+    <circle cx="205" cy="175" r="2" fill="#a67c52"></circle>
+    <circle cx="160" cy="210" r="2.5" fill="#d4a574"></circle>
+    <circle cx="190" cy="220" r="2" fill="#c9a86d"></circle>
+  </g>
+
+  <g id="matrix2" opacity="0.6">
+    <circle cx="850" cy="700" r="2.5" fill="#c9a86d"></circle>
+    <circle cx="880" cy="715" r="3" fill="#d4a574"></circle>
+    <circle cx="820" cy="730" r="2" fill="#8b6f47"></circle>
+    <circle cx="900" cy="740" r="2.5" fill="#e8d4a8"></circle>
+    <circle cx="860" cy="760" r="2" fill="#a67c52"></circle>
+    <circle cx="890" cy="780" r="3" fill="#d4a574"></circle>
+    <circle cx="830" cy="790" r="2.5" fill="#c9a86d"></circle>
+  </g>
+
+  
+  <g id="pod1" transform="translate(200, 650)">
+    <path d="M 0,0 Q 20,-15 30,-5 Q 25,15 10,25 Q -10,20 -15,5 Q -20,-10 0,0" fill="#a67c52" opacity="0.5"></path>
+    <circle cx="5" cy="3" r="2" fill="#d4a574" opacity="0.6"></circle>
+    <circle cx="15" cy="-5" r="1.5" fill="#e8d4a8" opacity="0.4"></circle>
+    <circle cx="8" cy="12" r="1.5" fill="#c9a86d" opacity="0.5"></circle>
+  </g>
+
+  <g id="pod2" transform="translate(750, 350)">
+    <path d="M 0,0 Q -25,-12 -32,5 Q -28,18 -8,28 Q 12,25 18,8 Q 20,-12 0,0" fill="#a67c52" opacity="0.4"></path>
+    <circle cx="-8" cy="2" r="2" fill="#d4a574" opacity="0.5"></circle>
+    <circle cx="-15" cy="-5" r="1.5" fill="#e8d4a8" opacity="0.3"></circle>
+    <circle cx="-5" cy="15" r="2" fill="#c9a86d" opacity="0.4"></circle>
+  </g>
+
+  
+  <g id="fractal1" opacity="0.65">
+    <circle cx="350" cy="750" r="25" fill="none" stroke="#d4a574" stroke-width="1" opacity="0.5"></circle>
+    <circle cx="350" cy="750" r="18" fill="none" stroke="#c9a86d" stroke-width="0.8" opacity="0.4"></circle>
+    <circle cx="350" cy="750" r="12" fill="none" stroke="#8b6f47" stroke-width="0.8" opacity="0.3"></circle>
+    <circle cx="365" cy="745" r="4" fill="#e8d4a8" opacity="0.4"></circle>
+    <circle cx="340" cy="760" r="3" fill="#d4a574" opacity="0.3"></circle>
+  </g>
+
+  <g id="fractal2" opacity="0.6">
+    <circle cx="650" cy="150" r="30" fill="none" stroke="#8b6f47" stroke-width="1.2" opacity="0.4"></circle>
+    <circle cx="650" cy="150" r="20" fill="none" stroke="#c9a86d" stroke-width="0.8" opacity="0.3"></circle>
+    <circle cx="650" cy="150" r="10" fill="none" stroke="#d4a574" stroke-width="0.8" opacity="0.2"></circle>
+    <circle cx="670" cy="140" r="3.5" fill="#d4a574" opacity="0.3"></circle>
+    <circle cx="640" cy="165" r="3" fill="#e8d4a8" opacity="0.2"></circle>
+  </g>
+
+  
+  <ellipse cx="150" cy="500" rx="85" ry="110" fill="none" stroke="#c9a86d" stroke-width="1.5" opacity="0.5"></ellipse>
+  <circle cx="170" cy="480" r="4" fill="#d4a574" opacity="0.4"></circle>
+  <circle cx="140" cy="530" r="3.5" fill="#e8d4a8" opacity="0.3"></circle>
+  <circle cx="155" cy="580" r="3" fill="#a67c52" opacity="0.2"></circle>
+
+  <ellipse cx="880" cy="550" rx="95" ry="120" fill="none" stroke="#8b6f47" stroke-width="1.5" opacity="0.4"></ellipse>
+  <circle cx="900" cy="510" r="4" fill="#d4a574" opacity="0.3"></circle>
+  <circle cx="870" cy="570" r="3.5" fill="#c9a86d" opacity="0.2"></circle>
+  <circle cx="890" cy="630" r="3" fill="#e8d4a8" opacity="0.2"></circle>
+
+  
+  <g id="bloom" opacity="0.5">
+    <circle cx="400" cy="200" r="2" fill="#d4a574"></circle>
+    <circle cx="420" cy="210" r="1.5" fill="#c9a86d"></circle>
+    <circle cx="410" cy="225" r="2" fill="#e8d4a8"></circle>
+    <circle cx="430" cy="215" r="1.5" fill="#8b6f47"></circle>
+    <circle cx="415" cy="240" r="2" fill="#d4a574"></circle>
+    <circle cx="445" cy="230" r="1.5" fill="#a67c52"></circle>
+    <circle cx="425" cy="255" r="2" fill="#c9a86d"></circle>
+    <circle cx="455" cy="250" r="1.5" fill="#d4a574"></circle>
+    <circle cx="440" cy="270" r="2" fill="#e8d4a8"></circle>
+    <circle cx="470" cy="265" r="1.5" fill="#8b6f47"></circle>
+  </g>
+
+  <g id="bloom2" opacity="0.4">
+    <circle cx="600" cy="850" r="2" fill="#c9a86d"></circle>
+    <circle cx="625" cy="860" r="1.5" fill="#d4a574"></circle>
+    <circle cx="610" cy="880" r="2" fill="#a67c52"></circle>
+    <circle cx="640" cy="875" r="1.5" fill="#e8d4a8"></circle>
+    <circle cx="620" cy="900" r="2" fill="#8b6f47"></circle>
+    <circle cx="655" cy="895" r="1.5" fill="#d4a574"></circle>
+    <circle cx="635" cy="920" r="2" fill="#c9a86d"></circle>
+    <circle cx="670" cy="910" r="1.5" fill="#a67c52"></circle>
+  </g>
+
+  
+  <line x1="500" y1="350" x2="500" y2="400" stroke="#d4a574" stroke-width="0.8" opacity="0.3"></line>
+  <line x1="600" y1="520" x2="650" y2="520" stroke="#c9a86d" stroke-width="0.8" opacity="0.2"></line>
+  <line x1="450" y1="600" x2="480" y2="620" stroke="#8b6f47" stroke-width="0.8" opacity="0.25"></line>
+  <line x1="520" y1="620" x2="550" y2="600" stroke="#d4a574" stroke-width="0.8" opacity="0.2"></line>
+
+  
+  <g id="void-accent" opacity="0.35">
+    <circle cx="300" cy="400" r="45" fill="url(#grad3)"></circle>
+    <circle cx="300" cy="400" r="35" fill="none" stroke="#d4a574" stroke-width="1" opacity="0.4"></circle>
+    <circle cx="310" cy="390" r="3" fill="#e8d4a8" opacity="0.3"></circle>
+    <circle cx="295" cy="415" r="2.5" fill="#c9a86d" opacity="0.2"></circle>
+  </g>
+</svg>

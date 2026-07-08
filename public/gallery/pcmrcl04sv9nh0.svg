@@ -1,0 +1,134 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="earthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9d8b7e;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#6b5d52;stop-opacity:1"></stop>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d32f2f;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#8b0000;stop-opacity:0.8"></stop>
+    </linearGradient>
+    <radialGradient id="ocherRad" cx="40%" cy="40%">
+      <stop offset="0%" style="stop-color:#c99a6e;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#8b6f47;stop-opacity:1"></stop>
+    </radialGradient>
+    <radialGradient id="bloodRad" cx="45%" cy="45%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#7a1818;stop-opacity:0.9"></stop>
+    </radialGradient>
+  </defs>
+
+  
+  <rect width="1000" height="1000" fill="#4a3f38"></rect>
+
+  
+  <rect width="1000" height="1000" fill="url(#earthGrad)" opacity="0.7"></rect>
+
+  
+  <g opacity="0.95">
+    
+    <path d="M 80 150 L 160 140 L 168 210 L 72 225 Z" fill="#8b7d70" stroke="#6b5d52" stroke-width="1.5"></path>
+    
+    <rect x="90" y="220" width="65" height="58" fill="#9d8b7e" stroke="#7a6a5d" stroke-width="1" transform="rotate(-8 122 249)"></rect>
+    
+    <path d="M 120 290 L 185 285 L 182 350 L 115 352 Z" fill="#a39584" stroke="#6b5d52" stroke-width="1.5"></path>
+    
+    <ellipse cx="95" cy="180" rx="28" ry="35" fill="#9a8a7d" stroke="#5d4f48" stroke-width="1.2" opacity="0.85"></ellipse>
+    
+    <rect x="140" y="260" width="52" height="45" fill="#8b7a6d" stroke="#5d4f48" stroke-width="1" transform="rotate(12 166 282)"></rect>
+    
+    <polygon points="85,320 125,315 128,365 82,368" fill="#9d8b7e" stroke="#6b5d52" stroke-width="1.2"></polygon>
+    
+    <path d="M 150 320 Q 165 315 175 330 Q 170 350 155 355 Q 145 345 150 320" fill="#8b7d70" stroke="#5d4f48" stroke-width="1.2"></path>
+    
+    <circle cx="70" cy="280" r="22" fill="#a39584" stroke="#6b5d52" stroke-width="1.2" opacity="0.9"></circle>
+  </g>
+
+  
+  <g opacity="0.92">
+    
+    <rect x="420" y="120" width="78" height="72" fill="#8b7a6d" stroke="#5d4f48" stroke-width="1.5" transform="rotate(-5 459 156)"></rect>
+    <rect x="430" y="200" width="68" height="85" fill="#9d8b7e" stroke="#6b5d52" stroke-width="1.2" transform="rotate(7 464 242)"></rect>
+    <rect x="415" y="290" width="95" height="60" fill="#a39584" stroke="#5d4f48" stroke-width="1.5" transform="rotate(-12 462 320)"></rect>
+    
+    
+    <circle cx="450" cy="140" r="18" fill="url(#ocherRad)" stroke="#5d4f48" stroke-width="1" opacity="0.88"></circle>
+    <circle cx="480" cy="190" r="22" fill="#9a8a7d" stroke="#6b5d52" stroke-width="1.2" opacity="0.85"></circle>
+    <circle cx="445" cy="250" r="20" fill="url(#ocherRad)" stroke="#5d4f48" stroke-width="1" opacity="0.9"></circle>
+    <circle cx="485" cy="310" r="24" fill="#8b7d70" stroke="#5d4f48" stroke-width="1.2" opacity="0.82"></circle>
+    
+    
+    <path d="M 425 135 L 470 132 L 472 155 L 428 158 Z" fill="#c99a6e" stroke="#6b5d52" stroke-width="1" opacity="0.7"></path>
+    <path d="M 440 280 L 510 275 L 512 305 L 438 308 Z" fill="#a39584" stroke="#5d4f48" stroke-width="1.2" opacity="0.75"></path>
+  </g>
+
+  
+  <g opacity="0.93">
+    
+    <path d="M 750 100 Q 800 95 825 130 L 820 200 Q 815 210 760 215 L 755 145 Z" fill="#8b7d70" stroke="#5d4f48" stroke-width="1.5"></path>
+    
+    
+    <circle cx="780" cy="160" r="26" fill="url(#bloodRad)" stroke="#6b5d52" stroke-width="1.2" opacity="0.88"></circle>
+    <circle cx="810" cy="190" r="20" fill="#9d8b7e" stroke="#5d4f48" stroke-width="1" opacity="0.85"></circle>
+    
+    
+    <polygon points="750,220 820,215 835,280 760,285" fill="#a39584" stroke="#5d4f48" stroke-width="1.2" opacity="0.8"></polygon>
+    <rect x="760" y="300" width="72" height="58" fill="#8b7a6d" stroke="#6b5d52" stroke-width="1.2" transform="rotate(-18 796 329)"></rect>
+    
+    
+    <ellipse cx="795" cy="250" rx="32" ry="42" fill="#9a8a7d" stroke="#5d4f48" stroke-width="1.2" opacity="0.75"></ellipse>
+    <ellipse cx="798" cy="252" rx="20" ry="28" fill="#c99a6e" stroke="#6b5d52" stroke-width="1" opacity="0.85"></ellipse>
+    
+    
+    <path d="M 740 350 L 810 345 L 825 380 L 758 385 Z" fill="#9d8b7e" stroke="#5d4f48" stroke-width="1.2" opacity="0.8"></path>
+    <circle cx="775" cy="365" r="18" fill="#a39584" stroke="#6b5d52" stroke-width="1" opacity="0.85"></circle>
+  </g>
+
+  
+  
+  <line x1="45" y1="320" x2="950" y2="520" stroke="url(#redGrad)" stroke-width="8" opacity="0.95" stroke-linecap="round"></line>
+  
+  
+  <line x1="200" y1="80" x2="720" y2="380" stroke="#d32f2f" stroke-width="2.5" opacity="0.4" stroke-linecap="round"></line>
+
+  
+  <g opacity="0.88">
+    
+    <ellipse cx="200" cy="700" rx="45" ry="38" fill="#d32f2f" stroke="#8b0000" stroke-width="1.5" opacity="0.7"></ellipse>
+    <ellipse cx="185" cy="720" rx="32" ry="28" fill="#e74c3c" opacity="0.6"></ellipse>
+    
+    
+    <ellipse cx="750" cy="680" rx="55" ry="42" fill="#c32020" stroke="#6b0000" stroke-width="1.5" opacity="0.65"></ellipse>
+    <ellipse cx="770" cy="705" rx="38" ry="32" fill="#d32f2f" opacity="0.55"></ellipse>
+    
+    
+    <rect x="150" y="650" width="48" height="42" fill="#8b7a6d" stroke="#5d4f48" stroke-width="1.2" transform="rotate(-25 174 671)"></rect>
+    <circle cx="320" cy="730" r="16" fill="#9d8b7e" stroke="#6b5d52" stroke-width="1" opacity="0.8"></circle>
+    <polygon points="620,680 670,675 675,730 615,735" fill="#a39584" stroke="#5d4f48" stroke-width="1.2" opacity="0.75"></polygon>
+    <rect x="880" y="650" width="55" height="48" fill="#8b7d70" stroke="#5d4f48" stroke-width="1.2" transform="rotate(15 907 674)"></rect>
+    <circle cx="900" cy="740" r="19" fill="#9a8a7d" stroke="#6b5d52" stroke-width="1" opacity="0.82"></circle>
+  </g>
+
+  
+  <g opacity="0.85">
+    <circle cx="380" cy="80" r="14" fill="#c99a6e" stroke="#5d4f48" stroke-width="1" opacity="0.7"></circle>
+    <rect x="550" y="60" width="35" height="32" fill="#9d8b7e" stroke="#6b5d52" stroke-width="1.2" transform="rotate(-35 567 76)"></rect>
+    <ellipse cx="680" cy="95" rx="18" ry="22" fill="#a39584" stroke="#5d4f48" stroke-width="1" opacity="0.75"></ellipse>
+  </g>
+
+  
+  <circle cx="520" cy="420" r="14" fill="url(#bloodRad)" stroke="#7a1818" stroke-width="1.5" opacity="0.9"></circle>
+  <circle cx="525" cy="425" r="8" fill="#e74c3c" opacity="0.7"></circle>
+
+  
+  <path d="M 300 550 Q 350 540 400 560 T 500 580" stroke="#d32f2f" stroke-width="2" opacity="0.3" fill="none" stroke-linecap="round"></path>
+  <path d="M 600 450 Q 650 470 700 445 T 800 460" stroke="#c99a6e" stroke-width="1.8" opacity="0.35" fill="none" stroke-linecap="round"></path>
+
+  
+  <g opacity="0.9">
+    <rect x="420" y="850" width="62" height="55" fill="#8b7a6d" stroke="#5d4f48" stroke-width="1.2" transform="rotate(-8 451 877)"></rect>
+    <circle cx="470" cy="875" r="17" fill="#9d8b7e" stroke="#6b5d52" stroke-width="1" opacity="0.85"></circle>
+    <polygon points="430,900 480,895 485,930 428,935" fill="#a39584" stroke="#5d4f48" stroke-width="1.2" opacity="0.8"></polygon>
+    <ellipse cx="455" cy="920" rx="24" ry="18" fill="#9a8a7d" stroke="#5d4f48" stroke-width="1" opacity="0.75"></ellipse>
+  </g>
+</svg>

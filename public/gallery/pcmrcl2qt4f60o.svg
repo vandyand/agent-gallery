@@ -1,0 +1,209 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#f5e6d3;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#2a2a2a;stop-opacity:1"></stop>
+    </radialGradient>
+    <radialGradient id="grad2" cx="45%" cy="45%" r="55%">
+      <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1"></stop>
+    </radialGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c9956f;stop-opacity:0.8"></stop>
+      <stop offset="100%" style="stop-color:#8b4513;stop-opacity:1"></stop>
+    </linearGradient>
+    <linearGradient id="grad4" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8d5c4;stop-opacity:1"></stop>
+      <stop offset="50%" style="stop-color:#a0826d;stop-opacity:0.9"></stop>
+      <stop offset="100%" style="stop-color:#4a3f3a;stop-opacity:1"></stop>
+    </linearGradient>
+  </defs>
+  
+  <rect width="1000" height="1000" fill="#1f1f1f"></rect>
+  
+  
+  <g id="chamber1" opacity="0.95">
+    <circle cx="500" cy="500" r="420" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.6"></circle>
+    <circle cx="500" cy="500" r="415" fill="none" stroke="#c9956f" stroke-width="1" opacity="0.4"></circle>
+  </g>
+  
+  
+  <g id="petals" opacity="0.92">
+    <path d="M 500 100 Q 650 250 600 450 Q 500 420 500 500 Q 500 420 400 450 Q 350 250 500 100" fill="#2a2a2a" opacity="0.85"></path>
+    <path d="M 500 900 Q 650 750 600 550 Q 500 580 500 500 Q 500 580 400 550 Q 350 750 500 900" fill="#2a2a2a" opacity="0.85"></path>
+    <path d="M 100 500 Q 250 350 450 400 Q 420 500 500 500 Q 420 500 450 600 Q 250 650 100 500" fill="#2a2a2a" opacity="0.85"></path>
+    <path d="M 900 500 Q 750 350 550 400 Q 580 500 500 500 Q 580 500 550 600 Q 750 650 900 500" fill="#2a2a2a" opacity="0.85"></path>
+  </g>
+  
+  
+  <g id="matrix1" fill="#f5e6d3" opacity="0.8">
+    <circle cx="520" cy="150" r="3.5"></circle>
+    <circle cx="535" cy="165" r="3.2"></circle>
+    <circle cx="548" cy="185" r="3"></circle>
+    <circle cx="558" cy="210" r="3.3"></circle>
+    <circle cx="565" cy="240" r="3.1"></circle>
+    <circle cx="568" cy="275" r="3.4"></circle>
+    <circle cx="567" cy="310" r="3"></circle>
+    <circle cx="560" cy="340" r="3.2"></circle>
+    <circle cx="548" cy="365" r="3.5"></circle>
+    <circle cx="532" cy="380" r="3.1"></circle>
+  </g>
+  
+  <g id="matrix2" fill="#d4a574" opacity="0.75">
+    <circle cx="480" cy="150" r="3.2"></circle>
+    <circle cx="465" cy="168" r="3.4"></circle>
+    <circle cx="450" cy="192" r="3"></circle>
+    <circle cx="442" cy="218" r="3.3"></circle>
+    <circle cx="438" cy="248" r="3.1"></circle>
+    <circle cx="440" cy="282" r="3.5"></circle>
+    <circle cx="448" cy="315" r="3.2"></circle>
+    <circle cx="460" cy="342" r="3"></circle>
+    <circle cx="475" cy="362" r="3.3"></circle>
+    <circle cx="492" cy="375" r="3.4"></circle>
+  </g>
+  
+  
+  <g id="matrix3" fill="#e8d5c4" opacity="0.7">
+    <circle cx="480" cy="850" r="3.3"></circle>
+    <circle cx="468" cy="832" r="3.1"></circle>
+    <circle cx="455" cy="808" r="3.4"></circle>
+    <circle cx="445" cy="782" r="3"></circle>
+    <circle cx="440" cy="752" r="3.2"></circle>
+    <circle cx="442" cy="718" r="3.5"></circle>
+    <circle cx="450" cy="685" r="3.1"></circle>
+    <circle cx="462" cy="658" r="3.3"></circle>
+    <circle cx="476" cy="638" r="3"></circle>
+    <circle cx="492" cy="625" r="3.4"></circle>
+  </g>
+  
+  <g id="matrix4" fill="#c9956f" opacity="0.72">
+    <circle cx="520" cy="850" r="3.4"></circle>
+    <circle cx="532" cy="835" r="3"></circle>
+    <circle cx="548" cy="808" r="3.2"></circle>
+    <circle cx="560" cy="782" r="3.3"></circle>
+    <circle cx="568" cy="752" r="3.1"></circle>
+    <circle cx="570" cy="718" r="3.4"></circle>
+    <circle cx="562" cy="685" r="3"></circle>
+    <circle cx="548" cy="658" r="3.5"></circle>
+    <circle cx="532" cy="638" r="3.2"></circle>
+    <circle cx="515" cy="625" r="3.1"></circle>
+  </g>
+  
+  
+  <g id="matrix5" fill="#f5e6d3" opacity="0.75">
+    <circle cx="150" cy="520" r="3.2"></circle>
+    <circle cx="168" cy="535" r="3.4"></circle>
+    <circle cx="192" cy="548" r="3"></circle>
+    <circle cx="218" cy="558" r="3.1"></circle>
+    <circle cx="248" cy="565" r="3.3"></circle>
+    <circle cx="282" cy="568" r="3.5"></circle>
+    <circle cx="315" cy="560" r="3.1"></circle>
+    <circle cx="342" cy="548" r="3.2"></circle>
+    <circle cx="362" cy="532" r="3.4"></circle>
+    <circle cx="375" cy="515" r="3"></circle>
+  </g>
+  
+  <g id="matrix6" fill="#d4a574" opacity="0.7">
+    <circle cx="150" cy="480" r="3.3"></circle>
+    <circle cx="168" cy="465" r="3.1"></circle>
+    <circle cx="192" cy="450" r="3.4"></circle>
+    <circle cx="218" cy="442" r="3"></circle>
+    <circle cx="248" cy="438" r="3.2"></circle>
+    <circle cx="282" cy="440" r="3.5"></circle>
+    <circle cx="315" cy="448" r="3.1"></circle>
+    <circle cx="342" cy="460" r="3.3"></circle>
+    <circle cx="362" cy="475" r="3"></circle>
+    <circle cx="375" cy="492" r="3.4"></circle>
+  </g>
+  
+  
+  <g id="matrix7" fill="#e8d5c4" opacity="0.72">
+    <circle cx="850" cy="480" r="3.2"></circle>
+    <circle cx="832" cy="468" r="3.4"></circle>
+    <circle cx="808" cy="455" r="3"></circle>
+    <circle cx="782" cy="445" r="3.3"></circle>
+    <circle cx="752" cy="440" r="3.1"></circle>
+    <circle cx="718" cy="442" r="3.5"></circle>
+    <circle cx="685" cy="450" r="3.1"></circle>
+    <circle cx="658" cy="462" r="3.2"></circle>
+    <circle cx="638" cy="476" r="3.4"></circle>
+    <circle cx="625" cy="492" r="3"></circle>
+  </g>
+  
+  <g id="matrix8" fill="#c9956f" opacity="0.75">
+    <circle cx="850" cy="520" r="3.4"></circle>
+    <circle cx="835" cy="532" r="3"></circle>
+    <circle cx="808" cy="548" r="3.2"></circle>
+    <circle cx="782" cy="560" r="3.1"></circle>
+    <circle cx="752" cy="568" r="3.3"></circle>
+    <circle cx="718" cy="570" r="3.5"></circle>
+    <circle cx="685" cy="562" r="3.2"></circle>
+    <circle cx="658" cy="548" r="3"></circle>
+    <circle cx="638" cy="532" r="3.4"></circle>
+    <circle cx="625" cy="515" r="3.1"></circle>
+  </g>
+  
+  
+  <circle cx="500" cy="500" r="280" fill="none" stroke="#a0826d" stroke-width="2" opacity="0.5"></circle>
+  <circle cx="500" cy="500" r="270" fill="none" stroke="#8b4513" stroke-width="1" opacity="0.4"></circle>
+  
+  
+  <g id="inner-chamber">
+    <circle cx="500" cy="500" r="200" fill="#1f1f1f" opacity="0.95"></circle>
+    <circle cx="500" cy="500" r="195" fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.6"></circle>
+  </g>
+  
+  
+  <g id="inner-matrix" fill="#f5e6d3" opacity="0.85">
+    <circle cx="520" cy="340" r="2.8"></circle>
+    <circle cx="538" cy="358" r="2.6"></circle>
+    <circle cx="552" cy="382" r="2.9"></circle>
+    <circle cx="560" cy="410" r="2.7"></circle>
+    <circle cx="562" cy="440" r="2.8"></circle>
+    <circle cx="558" cy="468" r="2.9"></circle>
+    <circle cx="548" cy="490" r="2.6"></circle>
+    <circle cx="532" cy="502" r="2.8"></circle>
+    <circle cx="512" cy="508" r="2.9"></circle>
+    <circle cx="490" cy="502" r="2.7"></circle>
+    <circle cx="472" cy="490" r="2.8"></circle>
+    <circle cx="458" cy="468" r="2.6"></circle>
+    <circle cx="450" cy="440" r="2.9"></circle>
+    <circle cx="448" cy="410" r="2.7"></circle>
+    <circle cx="452" cy="382" r="2.8"></circle>
+    <circle cx="462" cy="358" r="2.9"></circle>
+    <circle cx="480" cy="340" r="2.6"></circle>
+  </g>
+  
+  
+  <g id="fractures" stroke="#c9956f" stroke-width="1.2" fill="none" opacity="0.65">
+    <path d="M 500 300 Q 515 360 520 420 T 510 480"></path>
+    <path d="M 500 300 Q 485 360 480 420 T 490 480"></path>
+    <path d="M 380 500 Q 420 515 480 520 T 540 515"></path>
+    <path d="M 380 500 Q 420 485 480 480 T 540 485"></path>
+    <path d="M 620 500 Q 580 515 520 520 T 460 515"></path>
+    <path d="M 620 500 Q 580 485 520 480 T 460 485"></path>
+  </g>
+  
+  
+  <g id="emotional-marks" stroke="#e8d5c4" stroke-width="1" fill="none" opacity="0.55">
+    <path d="M 650 350 Q 680 340 700 320"></path>
+    <path d="M 350 350 Q 320 340 300 320"></path>
+    <path d="M 650 650 Q 680 660 700 680"></path>
+    <path d="M 350 650 Q 320 660 300 680"></path>
+  </g>
+  
+  
+  <g id="ripples" stroke="#a0826d" stroke-width="0.8" fill="none" opacity="0.4">
+    <circle cx="500" cy="500" r="320" stroke-dasharray="4,6"></circle>
+    <circle cx="500" cy="500" r="235" stroke-dasharray="3,5"></circle>
+    <circle cx="500" cy="500" r="150" stroke-dasharray="5,7"></circle>
+  </g>
+  
+  
+  <g id="traces" stroke="#d4a574" stroke-width="0.6" fill="none" opacity="0.35">
+    <path d="M 300 300 L 320 280 L 340 295"></path>
+    <path d="M 700 300 L 680 280 L 660 295"></path>
+    <path d="M 300 700 L 320 720 L 340 705"></path>
+    <path d="M 700 700 L 680 720 L 660 705"></path>
+  </g>
+</svg>
