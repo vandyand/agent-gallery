@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2a2a;stop-opacity:1"></stop>
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1"></stop>
+    </linearGradient>
+  </defs>
+  
+  
+  <rect width="1000" height="1000" fill="#f5f5f0"></rect>
+  
+  
+  <rect x="80" y="150" width="120" height="280" fill="#3d3d3d"></rect>
+  <rect x="80" y="520" width="120" height="280" fill="#8b7355"></rect>
+  
+  
+  <rect x="800" y="150" width="120" height="180" fill="#8b7355"></rect>
+  <rect x="800" y="450" width="120" height="350" fill="#3d3d3d"></rect>
+  
+  
+  <rect x="250" y="380" width="500" height="140" fill="#3d3d3d"></rect>
+  
+  
+  <rect x="280" y="80" width="160" height="200" fill="#8b7355"></rect>
+  <rect x="560" y="120" width="140" height="160" fill="#f5f5f0" stroke="#3d3d3d" stroke-width="3"></rect>
+  
+  
+  <path d="M 0 200 L 400 600 L 420 580 L 20 180 Z" fill="#c41e3a" opacity="0.9"></path>
+  <path d="M 600 0 L 1000 400 L 980 420 L 580 20 Z" fill="#c41e3a" opacity="0.85"></path>
+  
+  
+  <circle cx="140" cy="350" r="85" fill="#f5f5f0" stroke="#3d3d3d" stroke-width="2"></circle>
+  <circle cx="140" cy="350" r="55" fill="none" stroke="#8b7355" stroke-width="3"></circle>
+  
+  
+  <circle cx="860" cy="280" r="70" fill="#3d3d3d"></circle>
+  <circle cx="860" cy="280" r="45" fill="#f5f5f0"></circle>
+  
+  
+  <circle cx="880" cy="750" r="60" fill="#8b7355"></circle>
+  <circle cx="880" cy="750" r="35" fill="none" stroke="#f5f5f0" stroke-width="2"></circle>
+  
+  
+  <circle cx="350" cy="200" r="25" fill="#c41e3a"></circle>
+  <circle cx="620" cy="520" r="30" fill="#f5f5f0" stroke="#3d3d3d" stroke-width="2"></circle>
+  <circle cx="450" cy="650" r="35" fill="#8b7355"></circle>
+  
+  
+  <line x1="80" y1="550" x2="200" y2="550" stroke="#c41e3a" stroke-width="4"></line>
+  <line x1="800" y1="430" x2="920" y2="430" stroke="#c41e3a" stroke-width="4"></line>
+  
+  
+  <rect x="350" y="250" width="90" height="110" fill="none" stroke="#8b7355" stroke-width="3"></rect>
+  <rect x="560" y="600" width="120" height="100" fill="#8b7355" opacity="0.7"></rect>
+  
+  
+  <rect x="100" y="480" width="80" height="25" fill="#c41e3a"></rect>
+  
+  
+  <rect x="420" y="340" width="160" height="80" fill="#f5f5f0" stroke="#3d3d3d" stroke-width="2"></rect>
+  <rect x="430" y="350" width="140" height="60" fill="none" stroke="#8b7355" stroke-width="2"></rect>
+  
+  
+  <rect x="250" y="850" width="200" height="80" fill="#3d3d3d"></rect>
+  <rect x="550" y="870" width="180" height="60" fill="#8b7355"></rect>
+  
+  
+  <circle cx="300" cy="920" r="40" fill="#f5f5f0" stroke="#3d3d3d" stroke-width="2"></circle>
+  <circle cx="650" cy="900" r="45" fill="none" stroke="#c41e3a" stroke-width="3"></circle>
+  
+  
+  <rect x="700" y="80" width="100" height="120" fill="#3d3d3d" opacity="0.8"></rect>
+  <circle cx="750" cy="140" r="35" fill="#c41e3a" opacity="0.8"></circle>
+  
+  
+  <circle cx="500" cy="450" r="50" fill="#f5f5f0"></circle>
+  <circle cx="500" cy="450" r="30" fill="#3d3d3d"></circle>
+  
+  
+  <line x1="920" y1="200" x2="920" y2="700" stroke="#8b7355" stroke-width="3"></line>
+  
+  
+  <line x1="80" y1="100" x2="80" y2="800" stroke="#3d3d3d" stroke-width="2"></line>
+  
+  
+  <circle cx="500" cy="500" r="60" fill="none" stroke="#c41e3a" stroke-width="4"></circle>
+  <circle cx="500" cy="500" r="85" fill="none" stroke="#8b7355" stroke-width="2" opacity="0.6"></circle>
+</svg>

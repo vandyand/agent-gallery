@@ -1,0 +1,984 @@
+{
+  "title": "The Evolving Gallery",
+  "generations": [
+    {
+      "n": 0,
+      "createdAt": "2026-07-08T20:48:21.475Z",
+      "genomes": [
+        {
+          "id": "gmrcju8gx1",
+          "name": "Bauhau",
+          "styleDirective": "brutalist geometric forms — hard rectangles and circles in a muted 4-color palette with heavy negative space and one bold diagonal",
+          "params": {
+            "paletteSize": 4,
+            "complexity": 0.3,
+            "symmetry": 0.4,
+            "strokeFill": 0.85
+          },
+          "lineage": {
+            "parents": [],
+            "generation": 0,
+            "op": "seed"
+          },
+          "model": "anthropic/claude-haiku-4.5",
+          "temperature": 0.95
+        },
+        {
+          "id": "gmrcju8gx2",
+          "name": "Seraphine",
+          "styleDirective": "mystic organic symmetry — botanical spirals and mandala petals in soft dawn pastels, delicate and radiant",
+          "params": {
+            "paletteSize": 6,
+            "complexity": 0.7,
+            "symmetry": 0.95,
+            "strokeFill": 0.4
+          },
+          "lineage": {
+            "parents": [],
+            "generation": 0,
+            "op": "seed"
+          },
+          "model": "anthropic/claude-haiku-4.5",
+          "temperature": 0.95
+        },
+        {
+          "id": "gmrcju8gx3",
+          "name": "Moiré",
+          "styleDirective": "op-art line fields — dense concentric and interfering stroke patterns in high-contrast black and white with a single electric accent",
+          "params": {
+            "paletteSize": 3,
+            "complexity": 0.8,
+            "symmetry": 0.7,
+            "strokeFill": 0.05
+          },
+          "lineage": {
+            "parents": [],
+            "generation": 0,
+            "op": "seed"
+          },
+          "model": "anthropic/claude-haiku-4.5",
+          "temperature": 0.95
+        },
+        {
+          "id": "gmrcju8gx4",
+          "name": "Quadra",
+          "styleDirective": "rule-based color grid — a lattice of flat color blocks following a hidden algorithm, primary palette, crisp and systematic",
+          "params": {
+            "paletteSize": 5,
+            "complexity": 0.5,
+            "symmetry": 0.6,
+            "strokeFill": 1
+          },
+          "lineage": {
+            "parents": [],
+            "generation": 0,
+            "op": "seed"
+          },
+          "model": "anthropic/claude-haiku-4.5",
+          "temperature": 0.95
+        },
+        {
+          "id": "gmrcju8gx5",
+          "name": "Cadence",
+          "styleDirective": "lyrical jazz abstraction — floating overlapping shapes with improvisational energy in a warm amber-teal-rust palette",
+          "params": {
+            "paletteSize": 6,
+            "complexity": 0.6,
+            "symmetry": 0.2,
+            "strokeFill": 0.7
+          },
+          "lineage": {
+            "parents": [],
+            "generation": 0,
+            "op": "seed"
+          },
+          "model": "anthropic/claude-haiku-4.5",
+          "temperature": 0.95
+        },
+        {
+          "id": "gmrcju8gx6",
+          "name": "Umbra",
+          "styleDirective": "soft color-field minimalism — two or three large brooding rectangles of luminous color with feathered edges and quiet tension",
+          "params": {
+            "paletteSize": 3,
+            "complexity": 0.15,
+            "symmetry": 0.5,
+            "strokeFill": 1
+          },
+          "lineage": {
+            "parents": [],
+            "generation": 0,
+            "op": "seed"
+          },
+          "model": "anthropic/claude-haiku-4.5",
+          "temperature": 0.95
+        },
+        {
+          "id": "gmrcju8gx7",
+          "name": "Tessel",
+          "styleDirective": "interlocking tessellation — a repeating tiled motif that fits together seamlessly, tonal monochrome with subtle value shifts",
+          "params": {
+            "paletteSize": 4,
+            "complexity": 0.75,
+            "symmetry": 0.85,
+            "strokeFill": 0.6
+          },
+          "lineage": {
+            "parents": [],
+            "generation": 0,
+            "op": "seed"
+          },
+          "model": "anthropic/claude-haiku-4.5",
+          "temperature": 0.95
+        },
+        {
+          "id": "gmrcju8gx8",
+          "name": "Vesper",
+          "styleDirective": "obsessive dot fields — infinity-net polka patterns swelling and receding across the plane in bold red, white and black",
+          "params": {
+            "paletteSize": 3,
+            "complexity": 0.9,
+            "symmetry": 0.3,
+            "strokeFill": 0.9
+          },
+          "lineage": {
+            "parents": [],
+            "generation": 0,
+            "op": "seed"
+          },
+          "model": "anthropic/claude-haiku-4.5",
+          "temperature": 0.95
+        }
+      ],
+      "pieces": [
+        {
+          "id": "pcmrcju8gy6kay",
+          "genomeId": "gmrcju8gx1",
+          "artistName": "Bauhau",
+          "generation": 0,
+          "svgPath": "/gallery/pcmrcju8gy6kay.svg",
+          "thumbPath": "/gallery/pcmrcju8gy6kay.png",
+          "promptUsed": "Produce ONE artwork as a single self-contained SVG.\n\nHard rules (a validator will reject violations):\n- Root <svg> with viewBox=\"0 0 1000 1000\" and xmlns=\"http://www.w3.org/2000/svg\".\n- No <script>, no on* event attributes, no <foreignObject>, no external URLs\n  (no http/https href, no <image>, no remote fonts). Everything self-contained.\n- Use roughly 4 distinct colors.\n- Aim for about 48 drawable elements (shapes/paths).\n- Symmetry bias: 0.40 (0 = asymmetric/organic, 1 = strongly symmetric).\n- Stroke vs fill: 0.85 (0 = line-work heavy, 1 = solid fills).\n- Keep total size under 45 KB.\n\nCompose deliberately. Use <rect>, <circle>, <ellipse>, <path>, <polygon>,\n<line>, <g>, <linearGradient>/<radialGradient> as needed. A background is fine.\n\nReturn ONLY the complete SVG markup — start with \"<svg\" and end with \"</svg>\".\nNo prose, no explanation, no markdown fences.",
+          "tokens": {
+            "prompt": 386,
+            "completion": 1604
+          },
+          "costUsd": 0.008406,
+          "ms": 8652,
+          "guard": {
+            "ok": true,
+            "checks": [
+              {
+                "name": "under 50 KB",
+                "ok": true,
+                "detail": "3.8 KB"
+              },
+              {
+                "name": "no <script>",
+                "ok": true
+              },
+              {
+                "name": "no event handler (on*=)",
+                "ok": true
+              },
+              {
+                "name": "no <foreignObject>",
+                "ok": true
+              },
+              {
+                "name": "no external URL",
+                "ok": true
+              },
+              {
+                "name": "no <image> ref",
+                "ok": true
+              },
+              {
+                "name": "no javascript: URI",
+                "ok": true
+              },
+              {
+                "name": "parses as SVG",
+                "ok": true
+              },
+              {
+                "name": "has viewBox",
+                "ok": true
+              },
+              {
+                "name": ">= 5 shapes",
+                "ok": true,
+                "detail": "38 shapes"
+              },
+              {
+                "name": "survives sanitizer",
+                "ok": true
+              },
+              {
+                "name": "renders (resvg)",
+                "ok": true
+              }
+            ],
+            "bytes": 3915,
+            "elements": 38
+          },
+          "disqualified": false
+        },
+        {
+          "id": "pcmrcju8gz4yzi",
+          "genomeId": "gmrcju8gx2",
+          "artistName": "Seraphine",
+          "generation": 0,
+          "svgPath": "/gallery/pcmrcju8gz4yzi.svg",
+          "thumbPath": "/gallery/pcmrcju8gz4yzi.png",
+          "promptUsed": "Produce ONE artwork as a single self-contained SVG.\n\nHard rules (a validator will reject violations):\n- Root <svg> with viewBox=\"0 0 1000 1000\" and xmlns=\"http://www.w3.org/2000/svg\".\n- No <script>, no on* event attributes, no <foreignObject>, no external URLs\n  (no http/https href, no <image>, no remote fonts). Everything self-contained.\n- Use roughly 6 distinct colors.\n- Aim for about 96 drawable elements (shapes/paths).\n- Symmetry bias: 0.95 (0 = asymmetric/organic, 1 = strongly symmetric).\n- Stroke vs fill: 0.40 (0 = line-work heavy, 1 = solid fills).\n- Keep total size under 45 KB.\n\nCompose deliberately. Use <rect>, <circle>, <ellipse>, <path>, <polygon>,\n<line>, <g>, <linearGradient>/<radialGradient> as needed. A background is fine.\n\nReturn ONLY the complete SVG markup — start with \"<svg\" and end with \"</svg>\".\nNo prose, no explanation, no markdown fences.",
+          "tokens": {
+            "prompt": 384,
+            "completion": 3389
+          },
+          "costUsd": 0.017329,
+          "ms": 14023,
+          "guard": {
+            "ok": true,
+            "checks": [
+              {
+                "name": "under 50 KB",
+                "ok": true,
+                "detail": "7.6 KB"
+              },
+              {
+                "name": "no <script>",
+                "ok": true
+              },
+              {
+                "name": "no event handler (on*=)",
+                "ok": true
+              },
+              {
+                "name": "no <foreignObject>",
+                "ok": true
+              },
+              {
+                "name": "no external URL",
+                "ok": true
+              },
+              {
+                "name": "no <image> ref",
+                "ok": true
+              },
+              {
+                "name": "no javascript: URI",
+                "ok": true
+              },
+              {
+                "name": "parses as SVG",
+                "ok": true
+              },
+              {
+                "name": "has viewBox",
+                "ok": true
+              },
+              {
+                "name": ">= 5 shapes",
+                "ok": true,
+                "detail": "73 shapes"
+              },
+              {
+                "name": "survives sanitizer",
+                "ok": true
+              },
+              {
+                "name": "renders (resvg)",
+                "ok": true
+              }
+            ],
+            "bytes": 7814,
+            "elements": 73
+          },
+          "disqualified": false
+        },
+        {
+          "id": "pcmrcju8gza8mu",
+          "genomeId": "gmrcju8gx3",
+          "artistName": "Moiré",
+          "generation": 0,
+          "svgPath": "/gallery/pcmrcju8gza8mu.svg",
+          "thumbPath": "/gallery/pcmrcju8gza8mu.png",
+          "promptUsed": "Produce ONE artwork as a single self-contained SVG.\n\nHard rules (a validator will reject violations):\n- Root <svg> with viewBox=\"0 0 1000 1000\" and xmlns=\"http://www.w3.org/2000/svg\".\n- No <script>, no on* event attributes, no <foreignObject>, no external URLs\n  (no http/https href, no <image>, no remote fonts). Everything self-contained.\n- Use roughly 3 distinct colors.\n- Aim for about 108 drawable elements (shapes/paths).\n- Symmetry bias: 0.70 (0 = asymmetric/organic, 1 = strongly symmetric).\n- Stroke vs fill: 0.05 (0 = line-work heavy, 1 = solid fills).\n- Keep total size under 45 KB.\n\nCompose deliberately. Use <rect>, <circle>, <ellipse>, <path>, <polygon>,\n<line>, <g>, <linearGradient>/<radialGradient> as needed. A background is fine.\n\nReturn ONLY the complete SVG markup — start with \"<svg\" and end with \"</svg>\".\nNo prose, no explanation, no markdown fences.",
+          "tokens": {
+            "prompt": 385,
+            "completion": 3290
+          },
+          "costUsd": 0.016835000000000003,
+          "ms": 12838,
+          "guard": {
+            "ok": true,
+            "checks": [
+              {
+                "name": "under 50 KB",
+                "ok": true,
+                "detail": "7.6 KB"
+              },
+              {
+                "name": "no <script>",
+                "ok": true
+              },
+              {
+                "name": "no event handler (on*=)",
+                "ok": true
+              },
+              {
+                "name": "no <foreignObject>",
+                "ok": true
+              },
+              {
+                "name": "no external URL",
+                "ok": true
+              },
+              {
+                "name": "no <image> ref",
+                "ok": true
+              },
+              {
+                "name": "no javascript: URI",
+                "ok": true
+              },
+              {
+                "name": "parses as SVG",
+                "ok": true
+              },
+              {
+                "name": "has viewBox",
+                "ok": true
+              },
+              {
+                "name": ">= 5 shapes",
+                "ok": true,
+                "detail": "80 shapes"
+              },
+              {
+                "name": "survives sanitizer",
+                "ok": true
+              },
+              {
+                "name": "renders (resvg)",
+                "ok": true
+              }
+            ],
+            "bytes": 7804,
+            "elements": 80
+          },
+          "disqualified": false
+        },
+        {
+          "id": "pcmrcju8gz2qgi",
+          "genomeId": "gmrcju8gx4",
+          "artistName": "Quadra",
+          "generation": 0,
+          "svgPath": "/gallery/pcmrcju8gz2qgi.svg",
+          "thumbPath": "/gallery/pcmrcju8gz2qgi.png",
+          "promptUsed": "Produce ONE artwork as a single self-contained SVG.\n\nHard rules (a validator will reject violations):\n- Root <svg> with viewBox=\"0 0 1000 1000\" and xmlns=\"http://www.w3.org/2000/svg\".\n- No <script>, no on* event attributes, no <foreignObject>, no external URLs\n  (no http/https href, no <image>, no remote fonts). Everything self-contained.\n- Use roughly 5 distinct colors.\n- Aim for about 72 drawable elements (shapes/paths).\n- Symmetry bias: 0.60 (0 = asymmetric/organic, 1 = strongly symmetric).\n- Stroke vs fill: 1.00 (0 = line-work heavy, 1 = solid fills).\n- Keep total size under 45 KB.\n\nCompose deliberately. Use <rect>, <circle>, <ellipse>, <path>, <polygon>,\n<line>, <g>, <linearGradient>/<radialGradient> as needed. A background is fine.\n\nReturn ONLY the complete SVG markup — start with \"<svg\" and end with \"</svg>\".\nNo prose, no explanation, no markdown fences.",
+          "tokens": {
+            "prompt": 383,
+            "completion": 2503
+          },
+          "costUsd": 0.012898000000000001,
+          "ms": 11287,
+          "guard": {
+            "ok": true,
+            "checks": [
+              {
+                "name": "under 50 KB",
+                "ok": true,
+                "detail": "5.8 KB"
+              },
+              {
+                "name": "no <script>",
+                "ok": true
+              },
+              {
+                "name": "no event handler (on*=)",
+                "ok": true
+              },
+              {
+                "name": "no <foreignObject>",
+                "ok": true
+              },
+              {
+                "name": "no external URL",
+                "ok": true
+              },
+              {
+                "name": "no <image> ref",
+                "ok": true
+              },
+              {
+                "name": "no javascript: URI",
+                "ok": true
+              },
+              {
+                "name": "parses as SVG",
+                "ok": true
+              },
+              {
+                "name": "has viewBox",
+                "ok": true
+              },
+              {
+                "name": ">= 5 shapes",
+                "ok": true,
+                "detail": "77 shapes"
+              },
+              {
+                "name": "survives sanitizer",
+                "ok": true
+              },
+              {
+                "name": "renders (resvg)",
+                "ok": true
+              }
+            ],
+            "bytes": 5937,
+            "elements": 77
+          },
+          "disqualified": false
+        },
+        {
+          "id": "pcmrcjuf9t9ebs",
+          "genomeId": "gmrcju8gx5",
+          "artistName": "Cadence",
+          "generation": 0,
+          "svgPath": "/gallery/pcmrcjuf9t9ebs.svg",
+          "thumbPath": "/gallery/pcmrcjuf9t9ebs.png",
+          "promptUsed": "Produce ONE artwork as a single self-contained SVG.\n\nHard rules (a validator will reject violations):\n- Root <svg> with viewBox=\"0 0 1000 1000\" and xmlns=\"http://www.w3.org/2000/svg\".\n- No <script>, no on* event attributes, no <foreignObject>, no external URLs\n  (no http/https href, no <image>, no remote fonts). Everything self-contained.\n- Use roughly 6 distinct colors.\n- Aim for about 84 drawable elements (shapes/paths).\n- Symmetry bias: 0.20 (0 = asymmetric/organic, 1 = strongly symmetric).\n- Stroke vs fill: 0.70 (0 = line-work heavy, 1 = solid fills).\n- Keep total size under 45 KB.\n\nCompose deliberately. Use <rect>, <circle>, <ellipse>, <path>, <polygon>,\n<line>, <g>, <linearGradient>/<radialGradient> as needed. A background is fine.\n\nReturn ONLY the complete SVG markup — start with \"<svg\" and end with \"</svg>\".\nNo prose, no explanation, no markdown fences.",
+          "tokens": {
+            "prompt": 383,
+            "completion": 2679
+          },
+          "costUsd": 0.013778,
+          "ms": 13766,
+          "guard": {
+            "ok": true,
+            "checks": [
+              {
+                "name": "under 50 KB",
+                "ok": true,
+                "detail": "6.0 KB"
+              },
+              {
+                "name": "no <script>",
+                "ok": true
+              },
+              {
+                "name": "no event handler (on*=)",
+                "ok": true
+              },
+              {
+                "name": "no <foreignObject>",
+                "ok": true
+              },
+              {
+                "name": "no external URL",
+                "ok": true
+              },
+              {
+                "name": "no <image> ref",
+                "ok": true
+              },
+              {
+                "name": "no javascript: URI",
+                "ok": true
+              },
+              {
+                "name": "parses as SVG",
+                "ok": true
+              },
+              {
+                "name": "has viewBox",
+                "ok": true
+              },
+              {
+                "name": ">= 5 shapes",
+                "ok": true,
+                "detail": "53 shapes"
+              },
+              {
+                "name": "survives sanitizer",
+                "ok": true
+              },
+              {
+                "name": "renders (resvg)",
+                "ok": true
+              }
+            ],
+            "bytes": 6188,
+            "elements": 53
+          },
+          "disqualified": false
+        },
+        {
+          "id": "pcmrcjuhb34yad",
+          "genomeId": "gmrcju8gx6",
+          "artistName": "Umbra",
+          "generation": 0,
+          "svgPath": "/gallery/pcmrcjuhb34yad.svg",
+          "thumbPath": "/gallery/pcmrcjuhb34yad.png",
+          "promptUsed": "Produce ONE artwork as a single self-contained SVG.\n\nHard rules (a validator will reject violations):\n- Root <svg> with viewBox=\"0 0 1000 1000\" and xmlns=\"http://www.w3.org/2000/svg\".\n- No <script>, no on* event attributes, no <foreignObject>, no external URLs\n  (no http/https href, no <image>, no remote fonts). Everything self-contained.\n- Use roughly 3 distinct colors.\n- Aim for about 30 drawable elements (shapes/paths).\n- Symmetry bias: 0.50 (0 = asymmetric/organic, 1 = strongly symmetric).\n- Stroke vs fill: 1.00 (0 = line-work heavy, 1 = solid fills).\n- Keep total size under 45 KB.\n\nCompose deliberately. Use <rect>, <circle>, <ellipse>, <path>, <polygon>,\n<line>, <g>, <linearGradient>/<radialGradient> as needed. A background is fine.\n\nReturn ONLY the complete SVG markup — start with \"<svg\" and end with \"</svg>\".\nNo prose, no explanation, no markdown fences.",
+          "tokens": {
+            "prompt": 385,
+            "completion": 1720
+          },
+          "costUsd": 0.008985,
+          "ms": 9418,
+          "guard": {
+            "ok": true,
+            "checks": [
+              {
+                "name": "under 50 KB",
+                "ok": true,
+                "detail": "4.2 KB"
+              },
+              {
+                "name": "no <script>",
+                "ok": true
+              },
+              {
+                "name": "no event handler (on*=)",
+                "ok": true
+              },
+              {
+                "name": "no <foreignObject>",
+                "ok": true
+              },
+              {
+                "name": "no external URL",
+                "ok": true
+              },
+              {
+                "name": "no <image> ref",
+                "ok": true
+              },
+              {
+                "name": "no javascript: URI",
+                "ok": true
+              },
+              {
+                "name": "parses as SVG",
+                "ok": true
+              },
+              {
+                "name": "has viewBox",
+                "ok": true
+              },
+              {
+                "name": ">= 5 shapes",
+                "ok": true,
+                "detail": "26 shapes"
+              },
+              {
+                "name": "survives sanitizer",
+                "ok": true
+              },
+              {
+                "name": "renders (resvg)",
+                "ok": true
+              }
+            ],
+            "bytes": 4289,
+            "elements": 26
+          },
+          "disqualified": false
+        },
+        {
+          "id": "pcmrcjuihg2xl2",
+          "genomeId": "gmrcju8gx7",
+          "artistName": "Tessel",
+          "generation": 0,
+          "svgPath": "",
+          "thumbPath": "",
+          "promptUsed": "Produce ONE artwork as a single self-contained SVG.\n\nHard rules (a validator will reject violations):\n- Root <svg> with viewBox=\"0 0 1000 1000\" and xmlns=\"http://www.w3.org/2000/svg\".\n- No <script>, no on* event attributes, no <foreignObject>, no external URLs\n  (no http/https href, no <image>, no remote fonts). Everything self-contained.\n- Use roughly 4 distinct colors.\n- Aim for about 102 drawable elements (shapes/paths).\n- Symmetry bias: 0.85 (0 = asymmetric/organic, 1 = strongly symmetric).\n- Stroke vs fill: 0.60 (0 = line-work heavy, 1 = solid fills).\n- Keep total size under 45 KB.\n\nCompose deliberately. Use <rect>, <circle>, <ellipse>, <path>, <polygon>,\n<line>, <g>, <linearGradient>/<radialGradient> as needed. A background is fine.\n\nReturn ONLY the complete SVG markup — start with \"<svg\" and end with \"</svg>\".\nNo prose, no explanation, no markdown fences.",
+          "tokens": {
+            "prompt": 386,
+            "completion": 8000
+          },
+          "costUsd": 0.040386,
+          "ms": 25474,
+          "guard": {
+            "ok": false,
+            "checks": [
+              {
+                "name": "produced SVG",
+                "ok": false,
+                "detail": "no <svg> found in output"
+              }
+            ],
+            "reason": "no SVG in model output",
+            "bytes": 0,
+            "elements": 0
+          },
+          "disqualified": true
+        },
+        {
+          "id": "pcmrcjuje5i9l1",
+          "genomeId": "gmrcju8gx8",
+          "artistName": "Vesper",
+          "generation": 0,
+          "svgPath": "/gallery/pcmrcjuje5i9l1.svg",
+          "thumbPath": "/gallery/pcmrcjuje5i9l1.png",
+          "promptUsed": "Produce ONE artwork as a single self-contained SVG.\n\nHard rules (a validator will reject violations):\n- Root <svg> with viewBox=\"0 0 1000 1000\" and xmlns=\"http://www.w3.org/2000/svg\".\n- No <script>, no on* event attributes, no <foreignObject>, no external URLs\n  (no http/https href, no <image>, no remote fonts). Everything self-contained.\n- Use roughly 3 distinct colors.\n- Aim for about 120 drawable elements (shapes/paths).\n- Symmetry bias: 0.30 (0 = asymmetric/organic, 1 = strongly symmetric).\n- Stroke vs fill: 0.90 (0 = line-work heavy, 1 = solid fills).\n- Keep total size under 45 KB.\n\nCompose deliberately. Use <rect>, <circle>, <ellipse>, <path>, <polygon>,\n<line>, <g>, <linearGradient>/<radialGradient> as needed. A background is fine.\n\nReturn ONLY the complete SVG markup — start with \"<svg\" and end with \"</svg>\".\nNo prose, no explanation, no markdown fences.",
+          "tokens": {
+            "prompt": 384,
+            "completion": 3491
+          },
+          "costUsd": 0.017839,
+          "ms": 13345,
+          "guard": {
+            "ok": true,
+            "checks": [
+              {
+                "name": "under 50 KB",
+                "ok": true,
+                "detail": "8.4 KB"
+              },
+              {
+                "name": "no <script>",
+                "ok": true
+              },
+              {
+                "name": "no event handler (on*=)",
+                "ok": true
+              },
+              {
+                "name": "no <foreignObject>",
+                "ok": true
+              },
+              {
+                "name": "no external URL",
+                "ok": true
+              },
+              {
+                "name": "no <image> ref",
+                "ok": true
+              },
+              {
+                "name": "no javascript: URI",
+                "ok": true
+              },
+              {
+                "name": "parses as SVG",
+                "ok": true
+              },
+              {
+                "name": "has viewBox",
+                "ok": true
+              },
+              {
+                "name": ">= 5 shapes",
+                "ok": true,
+                "detail": "112 shapes"
+              },
+              {
+                "name": "survives sanitizer",
+                "ok": true
+              },
+              {
+                "name": "renders (resvg)",
+                "ok": true
+              }
+            ],
+            "bytes": 8594,
+            "elements": 112
+          },
+          "disqualified": false
+        }
+      ],
+      "critiques": {
+        "pcmrcju8gy6kay": [
+          {
+            "lens": "Emotional resonance",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 4,
+            "oneLine": "The composition is a competent exercise in geometric abstraction, but it evokes little beyond a mild intellectual curiosity.",
+            "costUsd": 0.0005028
+          },
+          {
+            "lens": "Color & harmony",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 7,
+            "oneLine": "The judicious use of a muted red against an earthy, neutral palette creates a sophisticated and balanced visual rhythm.",
+            "costUsd": 0.0005337
+          },
+          {
+            "lens": "Originality & surprise",
+            "judgeModel": "openai/gpt-4o-mini",
+            "score": 6,
+            "oneLine": "The composition plays with geometric forms and color contrasts, yet lacks a compelling narrative to elevate its originality.",
+            "costUsd": 0.0038615999999999998
+          },
+          {
+            "lens": "Composition & balance",
+            "judgeModel": "anthropic/claude-haiku-4.5",
+            "score": 7,
+            "oneLine": "A confident geometric composition that uses diagonal red vectors and concentric circles to orchestrate visual movement across a dense but fundamentally stable grid of rectangles and neutral tones.",
+            "costUsd": 0.0009419999999999999
+          }
+        ],
+        "pcmrcju8gz4yzi": [
+          {
+            "lens": "Composition & balance",
+            "judgeModel": "anthropic/claude-haiku-4.5",
+            "score": 7,
+            "oneLine": "A rigorously symmetrical mandala of concentric circles and radiating ovals achieves meditative balance through mathematical precision, though the repetition borders on decorative predictability.",
+            "costUsd": 0.000957
+          },
+          {
+            "lens": "Color & harmony",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 7,
+            "oneLine": "The delicate interplay of muted pinks and creams creates a soothing, almost ethereal harmony, like a whisper of dawn.",
+            "costUsd": 0.0005112
+          },
+          {
+            "lens": "Originality & surprise",
+            "judgeModel": "openai/gpt-4o-mini",
+            "score": 4,
+            "oneLine": "While the soft color palette and symmetrical design evoke a sense of calm, the overall composition lacks the boldness and innovation needed to truly surprise.",
+            "costUsd": 0.0038658
+          },
+          {
+            "lens": "Emotional resonance",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 4,
+            "oneLine": "This piece evokes a mild, fleeting sense of calm, like a forgotten floral pattern on old wallpaper, but ultimately lacks the depth to truly resonate.",
+            "costUsd": 0.0005253
+          }
+        ],
+        "pcmrcju8gza8mu": [
+          {
+            "lens": "Color & harmony",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 4,
+            "oneLine": "The stark, almost clinical use of CMYK primaries against a monochrome grid feels more like a technical diagram than an intentional exploration of color harmony.",
+            "costUsd": 0.0005237
+          },
+          {
+            "lens": "Emotional resonance",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 1,
+            "oneLine": "This image evokes the thrilling emotional landscape of a printer test page.",
+            "costUsd": 0.0004853
+          },
+          {
+            "lens": "Composition & balance",
+            "judgeModel": "anthropic/claude-haiku-4.5",
+            "score": 7,
+            "oneLine": "A mathematically precise polar grid achieves strong radial symmetry, though the peripheral circles and rectangles feel decorative rather than compositionally integrated.",
+            "costUsd": 0.000922
+          },
+          {
+            "lens": "Originality & surprise",
+            "judgeModel": "openai/gpt-4o-mini",
+            "score": 5,
+            "oneLine": "While the geometric precision is commendable, it lacks a compelling twist that would elevate it beyond the realm of the expected.",
+            "costUsd": 0.003864
+          }
+        ],
+        "pcmrcju8gz2qgi": [
+          {
+            "lens": "Color & harmony",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 7,
+            "oneLine": "The vibrant teal and coral create a playful tension, while the yellow accents provide a sunny, albeit somewhat predictable, counterpoint.",
+            "costUsd": 0.0005437
+          },
+          {
+            "lens": "Originality & surprise",
+            "judgeModel": "openai/gpt-4o-mini",
+            "score": 5,
+            "oneLine": "While the geometric patterns and color choices are engaging, they lack a deeper narrative or innovative twist that would elevate the piece.",
+            "costUsd": 0.0038634
+          },
+          {
+            "lens": "Emotional resonance",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 4,
+            "oneLine": "The piece offers a pleasant, if somewhat sterile, visual rhythm that evokes a mild sense of order without stirring deeper emotions.",
+            "costUsd": 0.0005128
+          },
+          {
+            "lens": "Composition & balance",
+            "judgeModel": "anthropic/claude-haiku-4.5",
+            "score": 7,
+            "oneLine": "A confident grid-based composition anchored by a strong central nested-square motif, with mirrored corner clusters and rhythmic color blocking that creates satisfying symmetry without feeling static.",
+            "costUsd": 0.000967
+          }
+        ],
+        "pcmrcjuf9t9ebs": [
+          {
+            "lens": "Color & harmony",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 7,
+            "oneLine": "The muted, earthy tones of teal, brown, and beige create a surprisingly sophisticated and harmonious interplay against the dark background, evoking a sense of calm and understated elegance.",
+            "costUsd": 0.0005362
+          },
+          {
+            "lens": "Emotional resonance",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 5,
+            "oneLine": "The muted palette and overlapping forms evoke a gentle, if somewhat indistinct, sense of quiet contemplation.",
+            "costUsd": 0.0005003
+          },
+          {
+            "lens": "Composition & balance",
+            "judgeModel": "anthropic/claude-haiku-4.5",
+            "score": 5,
+            "oneLine": "Competent geometric abstraction with clear teal-and-tan palette, but the scattered composition lacks focal hierarchy and feels more decorative than deliberately balanced.",
+            "costUsd": 0.000932
+          },
+          {
+            "lens": "Originality & surprise",
+            "judgeModel": "openai/gpt-4o-mini",
+            "score": 6,
+            "oneLine": "The composition plays with shapes and colors in a way that is visually engaging, yet lacks a deeper conceptual twist.",
+            "costUsd": 0.0038628
+          }
+        ],
+        "pcmrcjuhb34yad": [
+          {
+            "lens": "Color & harmony",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 6,
+            "oneLine": "The subtle interplay of deep purples and soft, glowing ochres creates a harmonious, almost nocturnal ambiance, though it lacks a compelling focal point to truly elevate it.",
+            "costUsd": 0.0005362
+          },
+          {
+            "lens": "Emotional resonance",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 4,
+            "oneLine": "This piece offers a fleeting sense of atmospheric calm, but ultimately lacks the depth to evoke a lasting emotional response.",
+            "costUsd": 0.0005078
+          },
+          {
+            "lens": "Composition & balance",
+            "judgeModel": "anthropic/claude-haiku-4.5",
+            "score": 3,
+            "oneLine": "Blurred bokeh orbs drift aimlessly across a murky field with no clear focal hierarchy or spatial tension, reading as compositionally inert rather than intentional.",
+            "costUsd": 0.0009519999999999999
+          },
+          {
+            "lens": "Originality & surprise",
+            "judgeModel": "openai/gpt-4o-mini",
+            "score": 4,
+            "oneLine": "The artwork's soft, blurred forms evoke a sense of calm, yet lack a compelling narrative or distinct originality.",
+            "costUsd": 0.0038622
+          }
+        ],
+        "pcmrcjuje5i9l1": [
+          {
+            "lens": "Color & harmony",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 6,
+            "oneLine": "The stark contrast of the glowing reds against the deep charcoal creates a dramatic, if somewhat predictable, focal point, while the subtle grey dots offer a whisper of cosmic texture.",
+            "costUsd": 0.0005387
+          },
+          {
+            "lens": "Emotional resonance",
+            "judgeModel": "google/gemini-2.5-flash",
+            "score": 3,
+            "oneLine": "The stark contrast and repetitive forms evoke a sense of sterile observation rather than genuine feeling.",
+            "costUsd": 0.0005228
+          },
+          {
+            "lens": "Composition & balance",
+            "judgeModel": "anthropic/claude-haiku-4.5",
+            "score": 8,
+            "oneLine": "A confident radial symmetry anchors the composition, with the bright central node commanding attention while the four corner spheres and scattered satellites create a perfectly calibrated orbital equi",
+            "costUsd": 0.000982
+          },
+          {
+            "lens": "Originality & surprise",
+            "judgeModel": "openai/gpt-4o-mini",
+            "score": 6,
+            "oneLine": "While the composition is visually striking, it lacks a deeper conceptual layer that would elevate its originality.",
+            "costUsd": 0.0038604
+          }
+        ]
+      },
+      "fitness": {
+        "pcmrcju8gy6kay": {
+          "pieceId": "pcmrcju8gy6kay",
+          "critics": 6,
+          "human": 0,
+          "novelty": 7,
+          "total": 5
+        },
+        "pcmrcju8gz4yzi": {
+          "pieceId": "pcmrcju8gz4yzi",
+          "critics": 5.5,
+          "human": 0,
+          "novelty": 7,
+          "total": 4.7
+        },
+        "pcmrcju8gza8mu": {
+          "pieceId": "pcmrcju8gza8mu",
+          "critics": 4.25,
+          "human": 0,
+          "novelty": 7,
+          "total": 3.95
+        },
+        "pcmrcju8gz2qgi": {
+          "pieceId": "pcmrcju8gz2qgi",
+          "critics": 5.75,
+          "human": 0,
+          "novelty": 7,
+          "total": 4.85
+        },
+        "pcmrcjuf9t9ebs": {
+          "pieceId": "pcmrcjuf9t9ebs",
+          "critics": 5.75,
+          "human": 0,
+          "novelty": 7,
+          "total": 4.85
+        },
+        "pcmrcjuhb34yad": {
+          "pieceId": "pcmrcjuhb34yad",
+          "critics": 4.25,
+          "human": 0,
+          "novelty": 7,
+          "total": 3.95
+        },
+        "pcmrcjuje5i9l1": {
+          "pieceId": "pcmrcjuje5i9l1",
+          "critics": 5.75,
+          "human": 0,
+          "novelty": 7,
+          "total": 4.85
+        }
+      },
+      "costUsd": 0.1774307,
+      "summary": {
+        "population": 8,
+        "survived": 7,
+        "rejected": 1,
+        "meanFitness": 4.5928571428571425,
+        "bestPieceId": "pcmrcju8gy6kay",
+        "bestFitness": 5
+      }
+    }
+  ],
+  "hallOfFame": [
+    "pcmrcju8gy6kay",
+    "pcmrcju8gz2qgi",
+    "pcmrcjuf9t9ebs",
+    "pcmrcjuje5i9l1",
+    "pcmrcju8gz4yzi",
+    "pcmrcju8gza8mu"
+  ],
+  "fitnessWeights": {
+    "critics": 0.6,
+    "human": 0.2,
+    "novelty": 0.2
+  },
+  "totalCostUsd": 0.1774307,
+  "builtAt": "2026-07-08T20:48:21.475Z"
+}
