@@ -483,6 +483,251 @@ a {
   }
 }
 
+/* ---- generational flow graph (ReactFlow) ---- */
+.flow-wrap {
+  height: 660px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-2);
+  overflow: hidden;
+}
+.flow-wrap .react-flow__controls button {
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  fill: var(--ink);
+}
+.flow-node {
+  width: 158px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 9px;
+  padding: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.12s ease;
+}
+.flow-node:hover {
+  transform: translateY(-2px);
+}
+.fn-thumb {
+  width: 46px;
+  height: 46px;
+  border-radius: 5px;
+  object-fit: cover;
+  background: #fff;
+  flex: none;
+}
+.fn-meta {
+  min-width: 0;
+  flex: 1;
+}
+.fn-name {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.84rem;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fn-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+.fn-op {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.fn-fit {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: var(--gold-2);
+  margin-left: auto;
+  font-weight: 700;
+}
+.flow-node.reject {
+  width: 150px;
+  border-style: dashed;
+  border-color: #3a2b30;
+  background: repeating-linear-gradient(45deg, #17141a, #17141a 7px, #191419 7px, #191419 14px);
+}
+.fn-x {
+  width: 30px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--down);
+  font-size: 1.1rem;
+  flex: none;
+}
+.fn-reason {
+  font-size: 0.6rem;
+  color: var(--faint);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  line-height: 1.2;
+}
+.fn-culled {
+  position: absolute;
+  top: -8px;
+  right: 6px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--faint);
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
+  padding: 1px 6px;
+}
+
+@media (max-width: 820px) {
+  .evo-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* op legend */
+.oplegend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 4px 0 16px;
+}
+.oplegend .item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.oplegend .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  flex: none;
+}
+.oplegend .item b {
+  color: var(--ink);
+}
+
+/* ---- lineage tree (vertical: gen-0 ancestors on top, masterpiece at bottom) ---- */
+.vtree-scroll {
+  overflow-x: auto;
+  padding: 26px 4px 24px;
+  display: flex;
+  justify-content: center;
+}
+.vnode {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.vparents {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 26px;
+  position: relative;
+  padding-bottom: 22px;
+}
+.vparents[data-multi="1"]::before {
+  content: "";
+  position: absolute;
+  bottom: 11px;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: var(--line);
+}
+.vparents > .vnode {
+  position: relative;
+}
+.vparents > .vnode::after {
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 11px;
+  background: var(--line);
+}
+.vparents + .vcard::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 11px;
+  background: var(--line);
+}
+.vcard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 7px 12px 7px 7px;
+  white-space: nowrap;
+}
+.vthumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: #fff;
+  flex: none;
+}
+.vempty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(45deg, #17141a, #17141a 6px, #191419 6px, #191419 12px);
+  color: var(--down);
+  border: 1px dashed #3a2b30;
+}
+.vname {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.vname a:hover {
+  color: var(--gold-2);
+}
+.vsub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3px;
+}
+.vop {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.vgen,
+.vfit {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  color: var(--faint);
+}
+.vfit {
+  color: var(--gold-2);
+}
+
 /* ---- lineage tree (horizontal: ancestors left, selected piece right) ---- */
 .lin-scroll {
   overflow-x: auto;

@@ -7,35 +7,44 @@ const OP_LABEL: Record<string, string> = {
   mutation: "mutation",
   crossover: "crossover",
 };
+const OP_COLOR: Record<string, string> = {
+  seed: "#8fb4d8",
+  survive: "#e0c074",
+  mutation: "#a99cf0",
+  crossover: "#6cc58f",
+};
 
-// Horizontal family tree: the selected piece on the right, its ancestors
-// branching left back to the generation-0 seeds. Crossovers branch into two.
-function Node({ a }: { a: Ancestor }) {
+// Vertical family tree: gen-0 ancestors at the top, flowing DOWN to the selected
+// masterpiece at the bottom. A crossover shows two parents merging into one node.
+function VNode({ a }: { a: Ancestor }) {
   const op = a.genome.lineage.op;
+  const color = OP_COLOR[op] ?? "#888";
   return (
-    <div className="lin-node">
+    <div className="vnode">
       {a.parents.length > 0 && (
-        <div className="lin-parents">
+        <div className="vparents" data-multi={a.parents.length > 1 ? "1" : "0"}>
           {a.parents.map((p) => (
-            <Node key={p.genome.id} a={p} />
+            <VNode key={p.genome.id} a={p} />
           ))}
         </div>
       )}
-      <div className="lin-card">
+      <div className="vcard" style={{ borderColor: color }}>
         {a.piece ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={a.piece.thumbPath} alt={a.genome.name} className="lin-thumb" />
+          <img src={a.piece.thumbPath} alt={a.genome.name} className="vthumb" />
         ) : (
-          <div className="lin-thumb lin-empty">✕</div>
+          <div className="vthumb vempty">✕</div>
         )}
-        <div className="lin-meta">
-          <div className="lin-name">
+        <div className="vmeta">
+          <div className="vname">
             {a.piece ? <Link href={`/piece/${a.piece.id}`}>{a.genome.name}</Link> : a.genome.name}
           </div>
-          <div className="lin-op">
-            <span className={`op op-${op}`}>{OP_LABEL[op] ?? op}</span>
-            <span className="lin-gen">gen {a.genome.lineage.generation}</span>
-            {a.fitness !== undefined && <span className="lin-fit">{a.fitness.toFixed(1)}</span>}
+          <div className="vsub">
+            <span className="vop" style={{ color }}>
+              {OP_LABEL[op] ?? op}
+            </span>
+            <span className="vgen">gen {a.genome.lineage.generation}</span>
+            {a.fitness !== undefined && <span className="vfit">{a.fitness.toFixed(1)}</span>}
           </div>
         </div>
       </div>
@@ -45,8 +54,8 @@ function Node({ a }: { a: Ancestor }) {
 
 export function LineageTree({ root }: { root: Ancestor }) {
   return (
-    <div className="lin-scroll">
-      <Node a={root} />
+    <div className="vtree-scroll">
+      <VNode a={root} />
     </div>
   );
 }

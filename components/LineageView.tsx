@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { hallOfFame, ancestryOfPiece } from "@/lib/data";
 import { LineageTree } from "@/components/LineageTree";
+import { OpLegend } from "@/components/OpLegend";
 
 // Shared lineage view: a strip of masterpieces to pick from + the ancestry tree
 // of the active one, traced back to the generation-0 seeds.
@@ -17,9 +18,12 @@ export function LineageView({ activeId }: { activeId: string }) {
         </h1>
         <p className="lede">
           As generations breed, each artist inherits from parents by mutation (steered by the critics’
-          own feedback) and crossover. Pick a piece to follow its bloodline back to the founding seeds.
+          own feedback) and crossover. Pick a piece to follow its bloodline back to the founding seeds —
+          gen 0 at the top, flowing down to the masterpiece.
         </p>
       </section>
+
+      <OpLegend />
 
       <div style={{ display: "flex", gap: 10, overflowX: "auto", padding: "6px 0 20px" }}>
         {hof.map((v) => (

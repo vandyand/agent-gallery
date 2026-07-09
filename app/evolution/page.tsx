@@ -1,34 +1,53 @@
-import { evolveFrames, fitnessSeries, modelAB } from "@/lib/data";
-import { EvolveTheatre } from "@/components/EvolveTheatre";
+import { flowData, fitnessSeries, modelAB } from "@/lib/data";
+import { EvolutionFlow } from "@/components/EvolutionFlow";
+import { FitnessChart } from "@/components/FitnessChart";
 import { ModelABPanel } from "@/components/ModelABPanel";
+import { OpLegend, OpExplainer } from "@/components/OpLegend";
 
 export const metadata = { title: "Evolution — The Evolving Gallery" };
 
 export default function EvolutionPage() {
-  const frames = evolveFrames();
+  const flow = flowData();
   const series = fitnessSeries();
   const ab = modelAB();
+
   return (
     <main className="wrap">
-      <section className="hero" style={{ padding: "40px 0 14px" }}>
+      <section className="hero" style={{ padding: "40px 0 12px" }}>
         <div className="kicker">The optimization loop</div>
         <h1 className="serif" style={{ fontSize: "clamp(1.9rem,4vw,2.9rem)" }}>
-          Watch the art get better.
+          The whole algorithm, in one picture.
         </h1>
         <p className="lede">
-          Hit <b style={{ color: "var(--gold-2)" }}>Evolve</b> to advance the gallery one generation at a
-          time. Each step, the fittest artists survive; their style genomes are mutated — steered by the
-          critics’ own feedback — and cross-bred into a new population. The curve is real data from a run
-          that already happened.
+          Read it left to right: each column is a generation. Every artwork is a node; the lines show
+          where each new artist came from. Top artists <b style={{ color: "#e0c074" }}>survive</b>,
+          the promising ones <b style={{ color: "#a99cf0" }}>mutate</b> or{" "}
+          <b style={{ color: "#6cc58f" }}>cross-breed</b>, and the weak ones are{" "}
+          <b style={{ color: "var(--faint)" }}>culled</b>. Click any piece to inspect it.
         </p>
       </section>
 
-      <EvolveTheatre frames={frames} series={series} />
+      <OpLegend />
+      <EvolutionFlow nodes={flow.nodes} edges={flow.edges} generations={flow.generations} />
+
+      <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 20, marginTop: 24 }} className="evo-grid">
+        <div className="card">
+          <h3>Art quality over generations</h3>
+          <p className="sub" style={{ marginTop: 0, marginBottom: 10 }}>
+            The critic score climbs as artists refine on feedback. Novelty declines as the population
+            converges on winning styles — the honest exploration/exploitation tradeoff.
+          </p>
+          <FitnessChart data={series} />
+        </div>
+        <OpExplainer />
+      </div>
 
       {ab && (
-        <section className="section" style={{ marginTop: 30 }}>
+        <section className="section" style={{ marginTop: 20 }}>
           <h2 className="serif">The cost of quality</h2>
-          <p className="sub">Every call is metered. Cheap by default; the expensive tier earns its place only if measured.</p>
+          <p className="sub">
+            Every call is metered. Cheap by default; the expensive tier earns its place only if measured.
+          </p>
           <ModelABPanel ab={ab} />
         </section>
       )}

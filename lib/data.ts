@@ -130,6 +130,79 @@ export function ancestryOfPiece(pieceId: string): Ancestor | undefined {
   return build(pv.genome);
 }
 
+// ---- generational flow graph (the whole algorithm, one view) ----
+
+export type FlowNode = {
+  id: string; // pieceId
+  gen: number;
+  indexInGen: number; // rank within its generation column (0 = fittest)
+  colSize: number; // how many nodes in this generation column
+  artist: string;
+  thumb: string;
+  fit: number;
+  op: string; // seed | survive | mutation | crossover
+  disqualified: boolean;
+  reason?: string;
+  culled: boolean; // survived guard but produced no offspring (a dead end)
+};
+
+export type FlowEdge = { id: string; source: string; target: string; op: string };
+
+export function flowData(): { generations: number; nodes: FlowNode[]; edges: FlowEdge[] } {
+  const gens = gallery().generations;
+
+  // genomeId -> its (survivor) pieceId, to resolve parent links
+  const genomeToPiece = new Map<string, string>();
+  for (const g of gens) for (const p of g.pieces) if (!p.disqualified) genomeToPiece.set(p.genomeId, p.id);
+
+  const nodes: FlowNode[] = [];
+  const edges: FlowEdge[] = [];
+  const isParent = new Set<string>();
+
+  for (const g of gens) {
+    const survivors = g.pieces
+      .filter((p) => !p.disqualified)
+      .sort((a, b) => (g.fitness[b.id]?.total ?? 0) - (g.fitness[a.id]?.total ?? 0));
+    const rejects = g.pieces.filter((p) => p.disqualified);
+    const ordered = [...survivors, ...rejects];
+    const colSize = ordered.length;
+
+    ordered.forEach((p, i) => {
+      const genome = g.genomes.find((gm) => gm.id === p.genomeId);
+      const op = genome?.lineage.op ?? "seed";
+      nodes.push({
+        id: p.id,
+        gen: g.n,
+        indexInGen: i,
+        colSize,
+        artist: p.artistName,
+        thumb: p.thumbPath,
+        fit: Number((g.fitness[p.id]?.total ?? 0).toFixed(1)),
+        op,
+        disqualified: p.disqualified,
+        reason: p.disqualified ? p.guard.reason : undefined,
+        culled: false,
+      });
+      // edges from each parent's piece to this one
+      for (const parentGenomeId of genome?.lineage.parents ?? []) {
+        const parentPieceId = genomeToPiece.get(parentGenomeId);
+        if (parentPieceId) {
+          edges.push({ id: `${parentPieceId}->${p.id}`, source: parentPieceId, target: p.id, op });
+          isParent.add(parentPieceId);
+        }
+      }
+    });
+  }
+
+  // a survivor before the final generation that never became a parent = culled
+  const lastGen = gens[gens.length - 1]?.n ?? 0;
+  for (const n of nodes) {
+    if (!n.disqualified && n.gen < lastGen && !isParent.has(n.id)) n.culled = true;
+  }
+
+  return { generations: gens.length, nodes, edges };
+}
+
 // Optional model A/B artifact (Haiku vs Sonnet cost↔quality).
 export type ModelAB = {
   rows: { model: string; label: string; artist: string; quality: number; costUsd: number; ms: number; ok: boolean }[];
