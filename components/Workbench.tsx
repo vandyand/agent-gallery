@@ -33,6 +33,28 @@ export function Workbench({ champions, startMode }: { champions: Genome[]; start
   const [theme, setTheme] = useState("");
   const [suggesting, setSuggesting] = useState(false);
 
+  // run library
+  const [library, setLibrary] = useState<{ id: string; name: string; createdAt: string; gens: number }[]>([]);
+  const [saveName, setSaveName] = useState("");
+
+  useEffect(() => {
+    if (!wb.started) {
+      fetch("/api/runs")
+        .then((r) => r.json())
+        .then((j) => setLibrary(j.runs ?? []))
+        .catch(() => {});
+    }
+  }, [wb.started]);
+
+  async function openRun(id: string) {
+    try {
+      const res = await fetch(`/api/runs/${id}`);
+      if (res.ok) wb.loadRun(await res.json());
+    } catch {
+      /* ignore */
+    }
+  }
+
   // deep-link: /studio?start=featured pre-forks the champions
   useEffect(() => {
     if (startMode === "featured" && !wb.started && champions.length) wb.init(champions.slice(0, 5), "Fork of the featured gallery");
@@ -103,6 +125,26 @@ export function Workbench({ champions, startMode }: { champions: Genome[]; start
             <span style={{ color: "var(--faint)", fontSize: "0.82rem" }}>{valid.length}/5 ready</span>
           </div>
         </div>
+
+        {library.length > 0 && (
+          <div className="card">
+            <h3>…or open a saved run</h3>
+            <p className="sub" style={{ marginTop: 0 }}>Runs other visitors evolved and saved. Open one to explore or fork it.</p>
+            <div style={{ display: "grid", gap: 8 }}>
+              {library.slice(0, 12).map((r) => (
+                <button
+                  key={r.id}
+                  className="btn"
+                  onClick={() => openRun(r.id)}
+                  style={{ justifyContent: "space-between", width: "100%", fontWeight: 500 }}
+                >
+                  <span>{r.name}</span>
+                  <span className="mono" style={{ color: "var(--faint)", fontSize: "0.78rem" }}>{r.gens} gen{r.gens === 1 ? "" : "s"}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -142,6 +184,17 @@ export function Workbench({ champions, startMode }: { champions: Genome[]; start
           </button>
           <span style={{ color: "var(--faint)", fontSize: "0.82rem" }}>Real Haiku calls · rate-limited + daily-capped</span>
         </div>
+
+        {wb.generations.length > 0 && (
+          <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 12, flexWrap: "wrap" }}>
+            <input className="input" placeholder="name this run…" value={saveName} onChange={(e) => setSaveName(e.target.value)} style={{ width: 220, flex: "none" }} />
+            <button className="btn" onClick={() => wb.save(saveName)} disabled={wb.saving}>
+              {wb.saving ? <span className="spinner" /> : wb.runId ? "Save a copy" : "💾 Save to library"}
+            </button>
+            {wb.saveMsg === "saved" && <span style={{ color: "var(--up)", fontSize: "0.85rem" }}>✓ saved to the library</span>}
+            {wb.saveMsg && wb.saveMsg !== "saved" && <span style={{ color: "var(--down)", fontSize: "0.85rem" }}>{wb.saveMsg}</span>}
+          </div>
+        )}
 
         {wb.error && (
           <p style={{ color: "var(--down)", marginTop: 12, marginBottom: 0, fontSize: "0.9rem" }}>

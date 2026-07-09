@@ -15,6 +15,8 @@ export function useWorkbench() {
   const [name, setName] = useState("");
   const [runId, setRunId] = useState<string | null>(null);
   const [started, setStarted] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [saveMsg, setSaveMsg] = useState<string | null>(null);
 
   const init = useCallback((genomes: Genome[], runName = "") => {
     genomeMap.current = new Map(genomes.map((g) => [g.id, g]));
@@ -127,9 +129,57 @@ export function useWorkbench() {
     setRunning(false);
   }, [population, running]);
 
+  const save = useCallback(
+    async (runName: string) => {
+      if (!generations.length || saving) return;
+      setSaving(true);
+      setSaveMsg(null);
+      try {
+        const res = await fetch("/api/runs", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            name: runName || name || "Untitled run",
+            generations,
+            population,
+            genomes: Array.from(genomeMap.current.values()),
+            forkedFrom: runId,
+          }),
+        });
+        const j = await res.json();
+        if (res.ok && j.id) {
+          setRunId(j.id);
+          setName(runName || name);
+          setSaveMsg("saved");
+        } else {
+          setSaveMsg(j.message || j.error || "save failed");
+        }
+      } catch (e) {
+        setSaveMsg(String(e));
+      }
+      setSaving(false);
+    },
+    [generations, population, name, runId, saving],
+  );
+
+  const loadRun = useCallback((data: { id?: string; name?: string; generations?: LiveGen[]; population?: Genome[]; genomes?: Genome[] }) => {
+    genomeMap.current = new Map((data.genomes ?? []).map((g) => [g.id, g]));
+    setGenerations(data.generations ?? []);
+    setPopulation(data.population ?? []);
+    setName(data.name ?? "");
+    setRunId(data.id ?? null);
+    setStarted(true);
+    setSaveMsg(null);
+    setError(null);
+  }, []);
+
   const flow = buildLiveFlow(generations, genomeMap.current);
 
   return {
+    save,
+    loadRun,
+    saving,
+    saveMsg,
     population,
     generations,
     flow,
