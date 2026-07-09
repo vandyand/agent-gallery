@@ -149,7 +149,8 @@ export type FlowNode = {
   indexInGen: number; // rank within its generation column (0 = fittest)
   colSize: number; // how many nodes in this generation column
   artist: string;
-  thumb: string;
+  thumb: string; // committed thumbnail path (featured run) …
+  svg?: string; // … or inline SVG (live workbench run)
   fit: number;
   op: string; // seed | survive | mutation | crossover
   disqualified: boolean;

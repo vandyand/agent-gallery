@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { flowData, fitnessSeries, modelAB, finalPopulationGenomes } from "@/lib/data";
+import { flowData, fitnessSeries, modelAB } from "@/lib/data";
 import { EvolutionFlow } from "@/components/EvolutionFlow";
 import { FitnessChart } from "@/components/FitnessChart";
 import { ModelABPanel } from "@/components/ModelABPanel";
 import { OpLegend, OpExplainer } from "@/components/OpLegend";
-import { LiveEvolve } from "@/components/LiveEvolve";
 
 export const metadata = { title: "Evolution — The Evolving Gallery" };
 
@@ -12,7 +11,6 @@ export default function EvolutionPage() {
   const flow = flowData();
   const series = fitnessSeries();
   const ab = modelAB();
-  const champions = finalPopulationGenomes().slice(0, 5);
 
   return (
     <main className="wrap">
@@ -34,16 +32,20 @@ export default function EvolutionPage() {
       <EvolutionFlow nodes={flow.nodes} edges={flow.edges} generations={flow.generations} />
 
       <section className="section" style={{ marginTop: 26 }}>
-        <h2 className="serif">Run it live</h2>
+        <h2 className="serif">Push it further — live</h2>
         <p className="sub">
-          The graph above is a real run that already happened. Push it further right now: this spawns a
-          genuine new generation from the current champions — the models actually paint and judge, live.
-          Want to start from scratch instead?{" "}
-          <Link href="/studio" style={{ color: "var(--gold-2)" }}>
-            Design your own population →
-          </Link>
+          This graph is a real run that already happened. In the Studio you can <b>fork these champions</b>{" "}
+          and evolve them further, or start a fresh population — the models actually paint and judge, and
+          the tree grows in front of you.
         </p>
-        <LiveEvolve initialGenomes={champions} />
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <Link href="/studio?start=featured" className="btn gold">
+            Fork this run in the Studio →
+          </Link>
+          <Link href="/studio" className="btn">
+            Start a fresh population
+          </Link>
+        </div>
       </section>
 
       <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 20, marginTop: 24 }} className="evo-grid">

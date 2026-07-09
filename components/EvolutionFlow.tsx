@@ -31,6 +31,10 @@ const OP_LABEL: Record<string, string> = {
 const COL_W = 210;
 const ROW_H = 120;
 
+function artSrc(n: FlowNode) {
+  return n.svg ? `data:image/svg+xml;utf8,${encodeURIComponent(n.svg)}` : n.thumb;
+}
+
 function PieceNode({ data }: NodeProps) {
   const n = data as unknown as FlowNode;
   const color = OP_COLOR[n.op] ?? "#888";
@@ -55,7 +59,7 @@ function PieceNode({ data }: NodeProps) {
     >
       <Handle type="target" position={Position.Left} style={{ background: color }} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={n.thumb} alt={n.artist} className="fn-thumb" />
+      <img src={artSrc(n)} alt={n.artist} className="fn-thumb" />
       <div className="fn-meta">
         <div className="fn-name">{n.artist}</div>
         <div className="fn-sub">
@@ -77,10 +81,14 @@ export function EvolutionFlow({
   nodes,
   edges,
   generations,
+  onSelect,
+  height,
 }: {
   nodes: FlowNode[];
   edges: { id: string; source: string; target: string; op: string }[];
   generations: number;
+  onSelect?: (id: string) => void; // inline inspect (workbench); default = navigate
+  height?: number;
 }) {
   const router = useRouter();
 
@@ -128,7 +136,7 @@ export function EvolutionFlow({
   );
 
   return (
-    <div className="flow-wrap">
+    <div className="flow-wrap" style={height ? { height } : undefined}>
       <ReactFlow
         nodes={rfNodes}
         edges={rfEdges}
@@ -139,7 +147,9 @@ export function EvolutionFlow({
         maxZoom={1.6}
         proOptions={{ hideAttribution: true }}
         onNodeClick={(_, node) => {
-          if (!String(node.id).startsWith("gen-label")) router.push(`/piece/${node.id}`);
+          if (String(node.id).startsWith("gen-label")) return;
+          if (onSelect) onSelect(String(node.id));
+          else router.push(`/piece/${node.id}`);
         }}
         nodesDraggable={false}
         nodesConnectable={false}
