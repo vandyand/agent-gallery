@@ -7,6 +7,7 @@ const NAV = [
   { href: "/", label: "Gallery" },
   { href: "/evolution", label: "Evolution" },
   { href: "/lineage", label: "Lineage" },
+  { href: "/studio", label: "Studio" },
   { href: "/rejected", label: "Rejected" },
   { href: "/about", label: "How it works" },
 ];

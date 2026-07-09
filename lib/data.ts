@@ -130,6 +130,17 @@ export function ancestryOfPiece(pieceId: string): Ancestor | undefined {
   return build(pv.genome);
 }
 
+// The final generation's surviving genomes, ranked by fitness — the starting
+// population the live-evolve button continues from.
+export function finalPopulationGenomes(): Genome[] {
+  const gen = latestGeneration();
+  return gen.pieces
+    .filter((p) => !p.disqualified)
+    .sort((a, b) => (gen.fitness[b.id]?.total ?? 0) - (gen.fitness[a.id]?.total ?? 0))
+    .map((p) => gen.genomes.find((g) => g.id === p.genomeId))
+    .filter((g): g is Genome => !!g);
+}
+
 // ---- generational flow graph (the whole algorithm, one view) ----
 
 export type FlowNode = {

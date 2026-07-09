@@ -439,6 +439,24 @@ a {
   cursor: default;
 }
 
+.input {
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-family: inherit;
+  padding: 9px 12px;
+  outline: none;
+}
+.input:focus {
+  border-color: var(--gold);
+}
+.input::placeholder {
+  color: var(--faint);
+}
+
 .back {
   color: var(--muted);
   font-size: 0.9rem;

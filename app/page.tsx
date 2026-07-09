@@ -44,6 +44,9 @@ export default function Home() {
           <Link href="/evolution" className="btn gold">
             Watch it evolve →
           </Link>
+          <Link href="/studio" className="btn">
+            Design your own ✨
+          </Link>
           <Link href="/about" className="btn">
             How it works
           </Link>

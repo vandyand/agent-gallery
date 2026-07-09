@@ -65,6 +65,24 @@ export function genomeId(): string {
   return `g${Date.now().toString(36)}${counter.toString(36)}`;
 }
 
+// Build a single gen-0 seed genome from a name + directive (init-flow / live).
+export function makeSeed(name: string, styleDirective: string, params?: Partial<Genome["params"]>): Genome {
+  return {
+    id: genomeId(),
+    name: name.slice(0, 24) || "Untitled",
+    styleDirective: styleDirective.slice(0, 400),
+    params: {
+      paletteSize: params?.paletteSize ?? 5,
+      complexity: params?.complexity ?? 0.5,
+      symmetry: params?.symmetry ?? 0.5,
+      strokeFill: params?.strokeFill ?? 0.7,
+    },
+    lineage: { parents: [], generation: 0, op: "seed" },
+    model: MODELS.artist,
+    temperature: 0.95,
+  };
+}
+
 export function seedGenomes(): Genome[] {
   return SEEDS.map((s) => ({
     id: genomeId(),

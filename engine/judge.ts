@@ -16,6 +16,42 @@ function judgeSystem(lens: string): string {
   ].join("\n");
 }
 
+// Live/serverless path: judge the SVG source as text (no rasterization). Less
+// true to "the image" than vision judging, but fast and dependency-free — the
+// tradeoff for running a generation live inside a serverless function.
+export async function judgePanelText(
+  inputs: { pieceId: string; svg: string }[],
+): Promise<Record<string, Critique[]>> {
+  const out: Record<string, Critique[]> = {};
+  for (const inp of inputs) out[inp.pieceId] = [];
+  const tasks = inputs.flatMap((inp) => MODELS.judges.map((j) => ({ inp, j })));
+
+  await pool(tasks, 6, async ({ inp, j }) => {
+    let critique: Critique;
+    try {
+      const r = await chat({
+        model: j.model,
+        system: judgeSystem(j.lens),
+        user: `Judge this artwork on "${j.lens}". Here is its SVG source:\n\n${inp.svg.slice(0, 2600)}\n\nReturn only the JSON.`,
+        maxTokens: 200,
+        temperature: 0.4,
+      });
+      const parsed = parseJsonLoose<{ score: number; one_line: string }>(r.text);
+      critique = {
+        lens: j.lens,
+        judgeModel: j.model,
+        score: parsed ? clamp(Number(parsed.score), 0, 10) : 5,
+        oneLine: parsed?.one_line?.slice(0, 200) ?? "(no verdict)",
+        costUsd: r.costUsd,
+      };
+    } catch {
+      critique = { lens: j.lens, judgeModel: j.model, score: 5, oneLine: "(judge error)", costUsd: 0 };
+    }
+    out[inp.pieceId].push(critique);
+  });
+  return out;
+}
+
 export type JudgeInput = { pieceId: string; png: Buffer };
 
 export async function judgePanel(inputs: JudgeInput[]): Promise<Record<string, Critique[]>> {

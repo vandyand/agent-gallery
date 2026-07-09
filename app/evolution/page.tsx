@@ -1,8 +1,10 @@
-import { flowData, fitnessSeries, modelAB } from "@/lib/data";
+import Link from "next/link";
+import { flowData, fitnessSeries, modelAB, finalPopulationGenomes } from "@/lib/data";
 import { EvolutionFlow } from "@/components/EvolutionFlow";
 import { FitnessChart } from "@/components/FitnessChart";
 import { ModelABPanel } from "@/components/ModelABPanel";
 import { OpLegend, OpExplainer } from "@/components/OpLegend";
+import { LiveEvolve } from "@/components/LiveEvolve";
 
 export const metadata = { title: "Evolution — The Evolving Gallery" };
 
@@ -10,6 +12,7 @@ export default function EvolutionPage() {
   const flow = flowData();
   const series = fitnessSeries();
   const ab = modelAB();
+  const champions = finalPopulationGenomes().slice(0, 5);
 
   return (
     <main className="wrap">
@@ -29,6 +32,19 @@ export default function EvolutionPage() {
 
       <OpLegend />
       <EvolutionFlow nodes={flow.nodes} edges={flow.edges} generations={flow.generations} />
+
+      <section className="section" style={{ marginTop: 26 }}>
+        <h2 className="serif">Run it live</h2>
+        <p className="sub">
+          The graph above is a real run that already happened. Push it further right now: this spawns a
+          genuine new generation from the current champions — the models actually paint and judge, live.
+          Want to start from scratch instead?{" "}
+          <Link href="/studio" style={{ color: "var(--gold-2)" }}>
+            Design your own population →
+          </Link>
+        </p>
+        <LiveEvolve initialGenomes={champions} />
+      </section>
 
       <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 20, marginTop: 24 }} className="evo-grid">
         <div className="card">
