@@ -95,6 +95,7 @@ export function useWorkbench() {
       const reader = res.body.getReader();
       const dec = new TextDecoder();
       let buf = "";
+      let gotDone = false;
       for (;;) {
         const { done, value } = await reader.read();
         if (done) break;
@@ -114,6 +115,7 @@ export function useWorkbench() {
           else if (e.type === "painted") setLog((l) => [...l, { artist: e.artist as string, ok: e.ok as boolean, reason: e.reason as string }]);
           else if (e.type === "judging") setPhase("judging");
           else if (e.type === "done") {
+            gotDone = true;
             const nextGenomes = e.nextGenomes as Genome[];
             for (const ng of nextGenomes) genomeMap.current.set(ng.id, ng);
             setGenerations((g) => [...g, { pieces: e.pieces as LiveGen["pieces"] }]);
@@ -121,6 +123,9 @@ export function useWorkbench() {
             setPhase(null);
           } else if (e.type === "error") setError(e.message as string);
         }
+      }
+      if (!gotDone) {
+        setError("The live run didn’t finish — it may have hit the time limit. Try again, or trim the population to 3–4 artists.");
       }
     } catch (err) {
       setError(String(err));

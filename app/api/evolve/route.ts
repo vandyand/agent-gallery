@@ -5,7 +5,7 @@ import { allowIp, overBudget, addSpend, budgetStatus, LIVE_POP } from "@/lib/rat
 import type { Genome } from "@/engine/types";
 
 export const runtime = "nodejs";
-export const maxDuration = 60;
+export const maxDuration = 300; // clamped to the plan max; painting now runs in one parallel wave
 
 // Coerce an untrusted client genome down to the fields we use.
 function sanitizeGenome(g: unknown): Genome | null {

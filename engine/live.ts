@@ -46,8 +46,9 @@ export async function runLiveGeneration(
 
   let costUsd = 0;
 
-  // 1. paint + 2. guard (pure JS)
-  const painted = await pool(genomes, 4, async (g) => {
+  // 1. paint + 2. guard (pure JS). Paint the whole population in one parallel
+  // wave (up to 6) so a live generation finishes well under the serverless limit.
+  const painted = await pool(genomes, Math.min(genomes.length, 6), async (g) => {
     const id = shortId("lv");
     try {
       const { svg, result } = await paint(g);
