@@ -6,9 +6,12 @@
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
+import { tmpdir } from "node:os";
 
 const OR_BASE = "https://openrouter.ai/api/v1";
-const CACHE_DIR = join(process.cwd(), "engine", ".cache");
+// tmpdir so it works on read-only serverless filesystems (only /tmp is writable);
+// all disk caching below is best-effort anyway (in-memory PRICES is the source).
+const CACHE_DIR = join(tmpdir(), "gallery-cache");
 const PRICE_CACHE = join(CACHE_DIR, "prices.json");
 
 export type Usage = { prompt: number; completion: number };
@@ -50,8 +53,12 @@ export async function loadPrices(): Promise<PriceMap> {
       completion: Number(m.pricing?.completion ?? 0),
     };
   }
-  mkdirSync(CACHE_DIR, { recursive: true });
-  writeFileSync(PRICE_CACHE, JSON.stringify(map));
+  try {
+    mkdirSync(CACHE_DIR, { recursive: true });
+    writeFileSync(PRICE_CACHE, JSON.stringify(map));
+  } catch {
+    /* read-only FS (serverless) — in-memory cache is enough */
+  }
   PRICES = map;
   return map;
 }
