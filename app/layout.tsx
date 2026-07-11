@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { TopBar } from "@/components/TopBar";
+import { RunProvider } from "@/components/RunProvider";
+import { PieceOverlay } from "@/components/PieceOverlay";
 
 const serif = Fraunces({ subsets: ["latin"], variable: "--font-serif", weight: ["400", "500", "600"] });
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -23,8 +25,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`}>
       <body>
-        <TopBar />
-        {children}
+        <RunProvider>
+          <TopBar />
+          {children}
+          <PieceOverlay />
+        </RunProvider>
       </body>
     </html>
   );

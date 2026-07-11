@@ -746,6 +746,151 @@ a {
   color: var(--gold-2);
 }
 
+/* ---- run switcher ---- */
+.switcher {
+  position: relative;
+}
+.switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+.switch-btn:hover {
+  border-color: var(--gold);
+}
+.switch-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gold);
+  flex: none;
+}
+.switch-name {
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.switch-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+.switch-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 55;
+  min-width: 270px;
+  max-height: 72vh;
+  overflow: auto;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 6px;
+}
+.switch-group {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--faint);
+  padding: 8px 10px 4px;
+}
+.switch-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.switch-item:hover {
+  background: var(--panel);
+}
+.switch-item.active {
+  color: var(--gold-2);
+}
+.switch-item.new {
+  color: var(--gold-2);
+  font-weight: 600;
+}
+.switch-sub {
+  color: var(--faint);
+  font-size: 0.75rem;
+  font-family: var(--font-mono), monospace;
+  white-space: nowrap;
+}
+
+/* ---- piece inspect overlay ---- */
+.overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(6, 5, 9, 0.72);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.overlay-card {
+  position: relative;
+  width: min(920px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+.overlay-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  border-radius: 999px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.overlay-close:hover {
+  color: var(--ink);
+}
+.overlay-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 22px;
+}
+@media (max-width: 720px) {
+  .overlay-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.overlay-art img {
+  width: 100%;
+  border-radius: 8px;
+  background: #fff;
+}
+
 /* ---- lineage tree (horizontal: ancestors left, selected piece right) ---- */
 .lin-scroll {
   overflow-x: auto;
