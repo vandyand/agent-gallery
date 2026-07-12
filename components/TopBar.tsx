@@ -40,8 +40,9 @@ export function TopBar() {
 
         {/* run switcher */}
         <div className="switcher">
-          <button className="switch-btn" onClick={() => setOpen((o) => !o)} aria-haspopup="menu" aria-expanded={open}>
-            <span className="switch-dot" />
+          <button className="switch-btn" onClick={() => setOpen((o) => !o)} aria-haspopup="menu" aria-expanded={open} title="Switch, fork, or create a run">
+            <span className="switch-dot" style={{ background: run?.source === "live" ? "var(--up)" : "var(--gold)" }} />
+            <span className="switch-label">Run</span>
             <span className="switch-name">{run ? run.name : "Loading…"}</span>
             <span aria-hidden="true" style={{ color: "var(--faint)" }}>▾</span>
           </button>

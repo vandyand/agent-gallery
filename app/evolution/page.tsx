@@ -70,11 +70,14 @@ export default function EvolutionPage() {
             onSelect={select}
             height={520}
           />
+          <p className="sub" style={{ marginTop: 8 }}>
+            Scroll to zoom · drag to pan · click any piece to inspect it.
+          </p>
         </>
       )}
 
       {/* ── controls: fork (read-only run) or the live workbench ─────────── */}
-      <div className="card" style={{ marginTop: 20 }}>
+      <div className="card" style={{ marginTop: 20, borderColor: isLive ? "var(--gold)" : "var(--line)" }}>
         {!isLive ? (
           <>
             <h3>Grow this run — live</h3>
@@ -92,8 +95,19 @@ export default function EvolutionPage() {
           </>
         ) : (
           <>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+              <span style={{ width: 8, height: 8, borderRadius: 999, background: "var(--up)", flex: "none" }} />
+              <h3 style={{ margin: 0, color: "var(--up)" }}>Editing “{run.name}” — your live run</h3>
+            </div>
+            <p className="sub" style={{ marginTop: 0 }}>
+              {hasGens
+                ? "Tweak the population below, then evolve to add the next generation. Save it to keep it in your library."
+                : "Add or remove artists, then paint generation 0 to begin."}
+            </p>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
-              <h3 style={{ margin: 0 }}>Population · {population.length} artists</h3>
+              <h4 style={{ margin: 0, fontSize: "0.78rem", textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--gold)" }}>
+                Population · {population.length} artists
+              </h4>
             </div>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", margin: "12px 0" }}>
               {population.map((g) => (

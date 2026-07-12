@@ -1,12 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useRun } from "@/components/RunProvider";
 import { runWall, runHallOfFame, runRejected } from "@/lib/run";
 import { RunPieceCard } from "@/components/RunPieceCard";
 
+const NEW_DEFAULTS = [
+  { name: "Ember", styleDirective: "glowing molten geometric fragments on deep charcoal with a few warm colors" },
+  { name: "Frost", styleDirective: "crystalline symmetric ice-blue lattice with delicate white linework" },
+  { name: "Verdant", styleDirective: "organic tangled vines and leaf shapes in layered greens with hand-drawn energy" },
+];
+
 export default function Home() {
-  const { run, loading } = useRun();
+  const { run, loading, newRun } = useRun();
+  const router = useRouter();
 
   if (loading || !run) {
     return (
@@ -53,8 +61,17 @@ export default function Home() {
         </div>
         <div style={{ marginTop: 22, display: "flex", gap: 12, flexWrap: "wrap" }}>
           <Link href="/evolution" className="btn gold">
-            {run.source === "featured" ? "Watch it evolve →" : "Open the cockpit →"}
+            {run.source === "featured" ? "Watch it evolve →" : "Open the workbench →"}
           </Link>
+          <button
+            className="btn"
+            onClick={() => {
+              newRun(NEW_DEFAULTS);
+              router.push("/evolution");
+            }}
+          >
+            Design your own ✨
+          </button>
           <Link href="/about" className="btn">
             How it works
           </Link>

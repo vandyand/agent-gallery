@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useRun } from "@/components/RunProvider";
 import { runPiece } from "@/lib/run";
@@ -9,6 +10,17 @@ const OP_LABEL: Record<string, string> = { seed: "seed", survive: "survived", mu
 export function PieceOverlay() {
   const { run, selectedPieceId, select, forkActive, running } = useRun();
   const router = useRouter();
+
+  // Dialog behavior: close on Escape when open.
+  useEffect(() => {
+    if (!selectedPieceId) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") select(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [selectedPieceId, select]);
+
   if (!run || !selectedPieceId) return null;
   const pv = runPiece(run, selectedPieceId);
   if (!pv) return null;
@@ -17,7 +29,7 @@ export function PieceOverlay() {
 
   return (
     <div className="overlay-backdrop" onClick={() => select(null)}>
-      <div className="overlay-card" onClick={(e) => e.stopPropagation()}>
+      <div className="overlay-card" role="dialog" aria-modal="true" aria-label={`${piece.artist} — piece detail`} onClick={(e) => e.stopPropagation()}>
         <button className="overlay-close" onClick={() => select(null)} aria-label="Close">
           ✕
         </button>
